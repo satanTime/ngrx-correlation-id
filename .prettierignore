@@ -1,0 +1,10 @@
+.editorconfig
+.gitignore
+.prettierignore
+LICENSE
+README.md
+package-lock.json
+
+dist
+node_modules
+test-reports
