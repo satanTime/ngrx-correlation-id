@@ -1,0 +1,21 @@
+<h2>Actions</h2>
+<button (click)="effect(false)" data-role="success">Run Successful Effect</button>
+<button (click)="effect(true)" data-role="failure">Run Failing Effect</button>
+<button (click)="taskStart()" data-role="start">Start Task</button>
+<button (click)="taskEnd()" data-role="end">End Task</button>
+<button (click)="taskPayload('2')" data-role="payload-2">Set Payload &quot;2&quot;</button>
+<button (click)="taskPayload('3')" data-role="payload-3">Set Payload &quot;3&quot;</button>
+<button (click)="taskRemove()" data-role="remove">Remove Task</button>
+<button (click)="reset$.next()" data-role="reset">Reset</button>
+
+<h2>feature</h2>
+<pre data-role="feature">{{ feature$ | async | json }}</pre>
+
+<h2>selectCid</h2>
+<pre data-role="selectCid">{{ task$ | async | json }}</pre>
+
+<h2>cidWait</h2>
+<pre data-role="cidWait">{{ taskWait$ | async | json }}</pre>
+
+<h2>History</h2>
+<pre data-role="history">{{ history$ | async | json }}</pre>

@@ -5,15 +5,15 @@
         "outDir": "./dist/out-tsc",
         "sourceMap": true,
         "declaration": false,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "module": "esnext",
+        "module": "es2015",
         "moduleResolution": "node",
-        "importHelpers": true,
-        "target": "es2015",
-        "lib": ["es2018", "dom"],
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es5",
+        "lib": ["es2017", "dom"],
         "paths": {
-            "ngrx-correlation-id": ["dist/ngrx-correlation-id/ngrx-correlation-id", "dist/ngrx-correlation-id"]
+            "ngrx-correlation-id": ["dist/ngrx-correlation-id"],
+            "ngrx-correlation-id/*": ["dist/ngrx-correlation-id/*"]
         },
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,
@@ -21,7 +21,6 @@
         "noImplicitThis": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "strictBindCallApply": true,
         "strictFunctionTypes": false,
         "strictPropertyInitialization": false,
         "strictNullChecks": true

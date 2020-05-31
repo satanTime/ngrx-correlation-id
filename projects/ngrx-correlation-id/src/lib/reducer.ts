@@ -1,6 +1,6 @@
-import {Action, createFeatureSelector, createReducer, on} from '@ngrx/store';
+import {createFeatureSelector} from '@ngrx/store';
 
-import {cidEnd, cidPayload, cidRemove, cidStart} from './actions';
+import {CidActions, cidEnd, cidPayload, cidRemove, cidStart} from './actions';
 
 export interface CidTask<T = any> {
     cid: string;
@@ -20,68 +20,65 @@ const initialState: State = {
     payloads: {},
 };
 
-const reducer = createReducer(
-    initialState,
+export function cidReducer(state: State = initialState, action: CidActions): State {
+    switch (action.type) {
+        case cidStart.type:
+            return {
+                ...state,
+                tasks: [...state.tasks, action.cid],
+            };
 
-    on(cidStart, (state, {cid}) => {
-        return {
-            ...state,
-            tasks: [...state.tasks, cid],
-        };
-    }),
+        case cidEnd.type:
+            const index = state.tasks.indexOf(action.cid);
+            if (index === -1) {
+                return state;
+            }
+            return {
+                ...state,
+                tasks: state.tasks.filter((_, taskIndex) => taskIndex !== index),
+            };
 
-    on(cidEnd, (state, {cid}) => {
-        const index = state.tasks.indexOf(cid);
-        if (index === -1) {
-            return state;
-        }
-        return {
-            ...state,
-            tasks: state.tasks.filter((_, taskIndex) => taskIndex !== index),
-        };
-    }),
+        case cidPayload.type:
+            if (state.payloads[action.cid] === action.payload) {
+                return state;
+            }
+            return {
+                ...state,
+                payloads: {
+                    ...state.payloads,
+                    [action.cid]: action.payload,
+                },
+            };
 
-    on(cidPayload, (state, {cid, payload}) => {
-        if (state.payloads[cid] === payload) {
-            return state;
-        }
-        return {
-            ...state,
-            payloads: {
-                ...state.payloads,
-                [cid]: payload,
-            },
-        };
-    }),
+        case cidRemove.type:
+            if (state.tasks.indexOf(action.cid) === -1 && state.payloads[action.cid] === undefined) {
+                return state;
+            }
+            return {
+                ...state,
+                tasks:
+                    state.tasks.indexOf(action.cid) === -1
+                        ? state.tasks
+                        : state.tasks.filter(taskId => taskId !== action.cid),
+                payloads:
+                    state.payloads[action.cid] === undefined
+                        ? state.payloads
+                        : Object.keys(state.payloads).reduce<State['payloads']>((result, taskId) => {
+                              if (taskId !== action.cid && state.payloads[action.cid] !== undefined) {
+                                  result[action.cid] = state.payloads[action.cid];
+                              }
+                              return result;
+                          }, {}),
+            };
+    }
 
-    on(cidRemove, (state, {cid}) => {
-        if (state.tasks.indexOf(cid) === -1 && state.payloads[cid] === undefined) {
-            return state;
-        }
-        return {
-            ...state,
-            tasks: state.tasks.indexOf(cid) === -1 ? state.tasks : state.tasks.filter(taskId => taskId !== cid),
-            payloads:
-                state.payloads[cid] === undefined
-                    ? state.payloads
-                    : Object.keys(state.payloads).reduce<State['payloads']>((result, taskId) => {
-                          if (taskId !== cid && state.payloads[cid] !== undefined) {
-                              result[cid] = state.payloads[cid];
-                          }
-                          return result;
-                      }, {}),
-        };
-    }),
-);
-
-export function cidReducer(state: State, action: Action): State {
-    return reducer(state, action);
+    return state;
 }
 
 export const selectCidFeature = createFeatureSelector<State>('ngrxCorrelationId');
 
 const selectCidResult = new Map<string, CidTask>();
-export const selectCid = (state: any, cid: string) => {
+const selectCidInternal: any = (state: any, cid: string) => {
     const feature = selectCidFeature(state);
     const actual = {
         cid,
@@ -99,6 +96,11 @@ export const selectCid = (state: any, cid: string) => {
     selectCidResult.set(cid, actual);
     return actual;
 };
-selectCid.release = () => {
+selectCidInternal.release = () => {
     selectCidResult.clear();
 };
+
+export const selectCid: {
+    <T = any>(state: any, cid: string): CidTask<T>;
+    release(): void;
+} = selectCidInternal;
