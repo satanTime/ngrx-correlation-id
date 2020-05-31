@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/satanTime/ngrx-correlation-id/compare/v1.0.0...v1.0.1) (2020-05-31)
+
+### Bug Fixes
+
+-   readme and license in builds ([399cf9a](https://github.com/satanTime/ngrx-correlation-id/commit/399cf9a8423c765a7feafb63f1300be9497c0f4d))
+
 # 1.0.0 (2020-05-31)
 
 ### Bug Fixes

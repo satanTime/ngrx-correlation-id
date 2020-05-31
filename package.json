@@ -1,6 +1,6 @@
 {
     "name": "ngrx-correlation-id",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "scripts": {
         "ng": "ng",
         "build": "ng build && cp LICENSE dist/ngrx-correlation-id && cp README.md dist/ngrx-correlation-id",
