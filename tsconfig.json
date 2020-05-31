@@ -25,13 +25,6 @@
         "strictPropertyInitialization": false,
         "strictNullChecks": true
     },
-    "angularCompilerOptions": {
-        "fullTemplateTypeCheck": true,
-        "strictInjectionParameters": true,
-        "angularCompilerOptions": {
-            "enableIvy": false
-        }
-    },
     "plugins": [
         {
             "name": "typescript-tslint-plugin",

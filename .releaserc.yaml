@@ -1,0 +1,24 @@
+release:
+    branches:
+        - master
+plugins:
+    - '@semantic-release/commit-analyzer'
+    - - '@semantic-release/exec'
+      - prepareCmd: npm run lint && npm test && npm run e2e && npm run b:a
+    - '@semantic-release/release-notes-generator'
+    - - '@semantic-release/changelog'
+      - changelogFile: CHANGELOG.md
+    - - '@semantic-release/npm'
+      - npmPublish: false
+    - - '@semantic-release/npm'
+      - pkgRoot: projects/ngrx-correlation-id
+        npmPublish: false
+    - - '@semantic-release/npm'
+      - tarballDir: tmp
+        npmPublish: false
+        pkgRoot: dist/ngrx-correlation-id
+    - - '@semantic-release/github'
+      - assets:
+            - tmp/*.tgz
+    - - '@semantic-release/git'
+      - message: "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
