@@ -3,14 +3,14 @@
     "version": "0.0.1",
     "description": "Store feature to track tasks via correlation id",
     "peerDependencies": {
-        "@angular/common": "^9.1.7",
-        "@angular/core": "^9.1.7",
-        "@ngrx/store": "^9.1.2",
-        "rxjs": "^6.5.5"
+        "@angular/common": "^9.0.0",
+        "@angular/core": "^9.0.0",
+        "@ngrx/store": "^9.0.0",
+        "rxjs": "~6.5.4"
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:satanTime/ngrx.git"
+        "url": "git@github.com:satanTime/ngrx-correlation-id.git"
     },
     "keywords": [
         "ngrx",
@@ -18,10 +18,10 @@
         "correlation",
         "id"
     ],
-    "author": "Michael Gusev <m@sudo.eu>",
+    "author": "MG. <m@sudo.eu>",
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/satanTime/ngrx/issues"
+        "url": "https://github.com/satanTime/ngrx-correlation-id/issues"
     },
-    "homepage": "https://github.com/satanTime/ngrx/tree/master/projects/ngrx-correlation-id#readme"
+    "homepage": "https://github.com/satanTime/ngrx-correlation-id#readme"
 }
