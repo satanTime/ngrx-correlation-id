@@ -22,3 +22,8 @@ plugins:
             - tmp/*.tgz
     - - '@semantic-release/git'
       - message: "chore(release): ${nextRelease.version}\n\n${nextRelease.notes}"
+        assets:
+            - projects/ngrx-correlation-id/package.json
+            - CHANGELOG.md
+            - package.json
+            - package-lock.json
