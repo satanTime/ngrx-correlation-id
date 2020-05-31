@@ -20,10 +20,10 @@ jobs:
                   command: npm run lint
             - run:
                   name: Tests
-                  command: npm run test -- --single-run --no-progress --coverage
+                  command: npm run test -- --code-coverage
             - run:
                   name: Collecting Coverage
-                  command: ./node_modules/coveralls/bin/coveralls.js < test-reports/coverage/lcov/lcov.info
+                  command: ./node_modules/coveralls/bin/coveralls.js < test-reports/coverage/lcov.info
             - store_test_results:
                   path: ./test-reports
             - store_artifacts:

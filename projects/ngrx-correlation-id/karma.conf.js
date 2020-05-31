@@ -34,12 +34,12 @@ module.exports = function (config) {
             },
         },
         coverageIstanbulReporter: {
-            dir: require('path').join(__dirname, '../../test-reports/ngrx-correlation-id/coverage'),
+            dir: require('path').join(__dirname, '../../test-reports/coverage'),
             reports: ['html', 'lcovonly'],
             fixWebpackSourcePaths: true,
         },
         junitReporter: {
-            outputDir: require('path').join(__dirname, '../../test-reports/ngrx-correlation-id'),
+            outputDir: require('path').join(__dirname, '../../test-reports'),
             outputFile: 'specs-junit.xml',
             useBrowserName: false,
         },
