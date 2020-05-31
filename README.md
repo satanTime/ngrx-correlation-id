@@ -1,5 +1,9 @@
 # ngrx-correlation-id
 
+[![npm version](https://badge.fury.io/js/ngrx-correlation-id.svg)](https://badge.fury.io/js/ngrx-correlation-id)
+[![CircleCI](https://circleci.com/gh/satanTime/ngrx-correlation-id.svg?style=shield)](https://app.circleci.com/pipelines/github/satanTime/ngrx-correlation-id)
+[![Coverage Status](https://coveralls.io/repos/github/satanTime/ngrx-correlation-id/badge.svg?branch=master)](https://coveralls.io/github/satanTime/ngrx-correlation-id?branch=master)
+
 A ngrx store library to track an asynchronous activity such as a http request, a ngrx effect or anything else.
 
 ### Supports
