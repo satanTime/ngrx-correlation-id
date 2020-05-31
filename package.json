@@ -3,7 +3,7 @@
     "version": "1.0.1",
     "scripts": {
         "ng": "ng",
-        "build": "ng build && cp LICENSE dist/ngrx-correlation-id && cp README.md dist/ngrx-correlation-id",
+        "build": "rm -Rf tmp && rm -Rf dist && ng build && cp LICENSE dist/ngrx-correlation-id && cp README.md dist/ngrx-correlation-id",
         "test": "ng test",
         "lint": "ng lint",
         "i:a": "npm run i:a6 && npm run i:a7 && npm run i:a8 && npm run i:a9",
