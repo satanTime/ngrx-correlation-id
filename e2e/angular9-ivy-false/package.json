@@ -1,5 +1,5 @@
 {
-    "name": "angular9",
+    "name": "angular9-ivy-false",
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
