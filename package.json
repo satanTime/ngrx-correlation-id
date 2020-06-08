@@ -86,7 +86,7 @@
         "ng-packagr": "^5.7.1",
         "prettier": "^2.0.5",
         "protractor": "~5.4.3",
-        "puppeteer": "~3.2.0",
+        "puppeteer": "~3.3.0",
         "rxjs-tslint-rules": "^4.33.0",
         "semantic-release": "^17.0.8",
         "ts-node": "~8.3.0",
