@@ -40,6 +40,7 @@
                             "sourceMap": false,
                             "extractCss": true,
                             "namedChunks": false,
+                            "aot": true,
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
@@ -107,12 +108,7 @@
                     }
                 }
             }
-        },
-        "ngrx-entity-relations": {
-            "projectType": "library",
-            "root": "ngrx-entity-relations",
-            "sourceRoot": "src"
         }
     },
-    "defaultProject": "ngrx-entity-relations"
+    "defaultProject": "app"
 }
