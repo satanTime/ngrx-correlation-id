@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/satanTime/ngrx-correlation-id/compare/v1.0.1...v1.0.2) (2020-09-12)
+
+### Bug Fixes
+
+-   using stable ngrx ([0fa3df0](https://github.com/satanTime/ngrx-correlation-id/commit/0fa3df03d4e1cd2856ad625e8cb69984d449248d))
+
 ## [1.0.1](https://github.com/satanTime/ngrx-correlation-id/compare/v1.0.0...v1.0.1) (2020-05-31)
 
 ### Bug Fixes
