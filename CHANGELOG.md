@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/satanTime/ngrx-correlation-id/compare/v1.0.2...v1.0.3) (2020-11-14)
+
+### Bug Fixes
+
+-   adding Angular 11 coverage ([7ab3b3d](https://github.com/satanTime/ngrx-correlation-id/commit/7ab3b3d1a37d051ddad55ffc1f0e724a750413ef))
+
 ## [1.0.2](https://github.com/satanTime/ngrx-correlation-id/compare/v1.0.1...v1.0.2) (2020-09-12)
 
 ### Bug Fixes
