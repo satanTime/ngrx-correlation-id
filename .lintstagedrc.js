@@ -31,7 +31,7 @@ module.exports = {
             .map(file => `'${file}'`);
 
         if (filesForLint.length) {
-            commands.push(`npm run lint -- --fix --force ${filesForLint.join(' ')}`);
+            commands.push(`npm run lint -- --fix --force`);
         }
         commands.push(`prettier --write ${files.join(' ')}`);
 
