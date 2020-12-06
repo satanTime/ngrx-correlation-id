@@ -134,7 +134,7 @@
             "e2e/**"
         ],
         "rangeStrategy": "pin",
-        "rebaseWhen": "behind-base-branch",
+        "rebaseWhen": "conflicted",
         "separateMajorMinor": true,
         "separateMinorPatch": true,
         "separateMultipleMajor": true
