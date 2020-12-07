@@ -61,7 +61,7 @@
     "dependencies": {
         "@angular/common": "6.1.10",
         "@angular/compiler": "6.1.10",
-        "@angular/core": "6.1.10",
+        "@angular/core": "10.2.3",
         "@angular/platform-browser": "6.1.10",
         "@angular/platform-browser-dynamic": "6.1.10",
         "@ngrx/effects": "6.1.2",
