@@ -59,7 +59,7 @@
     "author": "MG. <m@sudo.eu>",
     "license": "Apache-2.0",
     "dependencies": {
-        "@angular/common": "6.1.10",
+        "@angular/common": "7.2.16",
         "@angular/compiler": "6.1.10",
         "@angular/core": "6.1.10",
         "@angular/platform-browser": "6.1.10",
