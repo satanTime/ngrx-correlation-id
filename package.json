@@ -78,7 +78,7 @@
         "@angular/compiler-cli": "6.1.10",
         "@angular/language-service": "6.1.10",
         "@commitlint/cli": "8.3.5",
-        "@commitlint/config-conventional": "8.3.4",
+        "@commitlint/config-conventional": "11.0.0",
         "@semantic-release/changelog": "5.0.1",
         "@semantic-release/exec": "5.0.0",
         "@semantic-release/git": "9.0.0",
