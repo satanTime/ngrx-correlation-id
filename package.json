@@ -64,7 +64,7 @@
         "@angular/core": "6.1.10",
         "@angular/platform-browser": "6.1.10",
         "@angular/platform-browser-dynamic": "6.1.10",
-        "@ngrx/effects": "6.1.2",
+        "@ngrx/effects": "9.2.0",
         "@ngrx/entity": "6.1.2",
         "@ngrx/store": "6.1.2",
         "core-js": "2.6.11",
