@@ -63,7 +63,7 @@
         "@angular/compiler": "6.1.10",
         "@angular/core": "6.1.10",
         "@angular/platform-browser": "6.1.10",
-        "@angular/platform-browser-dynamic": "6.1.10",
+        "@angular/platform-browser-dynamic": "7.2.16",
         "@ngrx/effects": "6.1.2",
         "@ngrx/entity": "6.1.2",
         "@ngrx/store": "6.1.2",
