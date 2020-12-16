@@ -106,7 +106,7 @@
         "puppeteer": "5.4.1",
         "rxjs-tslint-rules": "4.33.3",
         "semantic-release": "17.3.0",
-        "ts-node": "8.3.0",
+        "ts-node": "8.10.2",
         "tsickle": "0.39.1",
         "tslib": "1.13.0",
         "tslint": "5.20.1",
