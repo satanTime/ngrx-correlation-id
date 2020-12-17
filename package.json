@@ -141,6 +141,31 @@
         "separateMultipleMajor": true,
         "ignoreDeprecated": false,
         "semanticCommitScope": "{{#if baseDir}}{{baseDir}}{{else}}deps{{/if}}",
-        "additionalBranchPrefix": "{{#if baseDir}}{{baseDir}}/{{else}}root/{{/if}}"
+        "additionalBranchPrefix": "{{#if baseDir}}{{baseDir}}/{{else}}root/{{/if}}",
+        "packageRules": [
+            {
+                "paths": [
+                    "+(projects/ngrx-correlation-id/package.json)"
+                ],
+                "depTypeList": [
+                    "peerDependencies"
+                ],
+                "enabled": false
+            },
+            {
+                "packageNames": [
+                    "puppeteer"
+                ],
+                "groupName": "puppeteer",
+                "groupSlug": "puppeteer"
+            },
+            {
+                "paths": [
+                    "+(e2e/angular6/package.json)",
+                    "+(e2e/angular6/package-lock.json)"
+                ],
+                "groupSlug": "a6"
+            }
+        ]
     }
 }
