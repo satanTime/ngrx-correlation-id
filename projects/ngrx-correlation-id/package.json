@@ -3,10 +3,10 @@
     "version": "1.0.3",
     "description": "Store feature to track tasks via correlation id",
     "peerDependencies": {
-        "@angular/common": "^6.0.0-rc.0 || >= 6.0.0",
-        "@angular/core": "^6.0.0-rc.0 || >= 6.0.0",
-        "@ngrx/store": "^6.0.0-rc.0 || >= 6.0.0",
-        "rxjs": ">= 6.2.0"
+        "@angular/common": "11.0.5",
+        "@angular/core": "11.0.5",
+        "@ngrx/store": "10.1.2",
+        "rxjs": "6.6.3"
     },
     "repository": {
         "type": "git",
