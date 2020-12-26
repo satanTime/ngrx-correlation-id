@@ -1,5 +1,5 @@
 {
-    "name": "angular8",
+    "name": "a8",
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
@@ -43,7 +43,6 @@
         "jasmine-spec-reporter": "4.2.1",
         "karma": "4.1.0",
         "karma-chrome-launcher": "2.2.0",
-        "karma-coverage-istanbul-reporter": "2.0.6",
         "karma-jasmine": "2.0.1",
         "karma-jasmine-html-reporter": "1.5.4",
         "protractor": "5.4.4",
