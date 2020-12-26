@@ -11,16 +11,10 @@ module.exports = function (config) {
             require('karma-jasmine'),
             require('karma-chrome-launcher'),
             require('karma-jasmine-html-reporter'),
-            require('karma-coverage'),
             require('@angular-devkit/build-angular/plugins/karma'),
         ],
         client: {
             clearContext: false, // leave Jasmine Spec Runner output visible in browser
-        },
-        coverageReporter: {
-            dir: require('path').join(__dirname, './coverage/app'),
-            subdir: '.',
-            reporters: [{type: 'html'}, {type: 'text-summary'}],
         },
         customLaunchers: {
             ChromeCi: {
@@ -28,7 +22,7 @@ module.exports = function (config) {
                 flags: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
             },
         },
-        reporters: ['progress', 'kjhtml'],
+        reporters: ['kjhtml'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
