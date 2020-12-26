@@ -88,7 +88,7 @@
         "@types/jasminewd2": "2.0.8",
         "@types/node": "^12.11.1",
         "codecov": "3.8.1",
-        "codelyzer": "^5.1.2",
+        "codelyzer": "6.0.1",
         "commitlint": "8.3.5",
         "coveralls": "3.1.0",
         "husky": "4.3.6",
