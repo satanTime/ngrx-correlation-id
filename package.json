@@ -121,37 +121,5 @@
             "pre-commit": "lint-staged && npm run lint && npm run test",
             "post-commit": "git update-index --again"
         }
-    },
-    "renovate": {
-        "extends": [
-            "config:base",
-            ":semanticCommitTypeAll(chore)"
-        ],
-        "rangeStrategy": "pin",
-        "rebaseWhen": "conflicted",
-        "separateMajorMinor": true,
-        "separateMinorPatch": true,
-        "separateMultipleMajor": true,
-        "ignoreDeprecated": false,
-        "semanticCommitScope": "{{#if baseDir}}{{baseDir}}{{else}}deps{{/if}}",
-        "additionalBranchPrefix": "{{#if baseDir}}{{baseDir}}/{{else}}root/{{/if}}",
-        "packageRules": [
-            {
-                "paths": [
-                    "projects/ngrx-correlation-id/package.json"
-                ],
-                "depTypeList": [
-                    "peerDependencies"
-                ],
-                "enabled": false
-            },
-            {
-                "packageNames": [
-                    "puppeteer"
-                ],
-                "groupName": "puppeteer",
-                "groupSlug": "puppeteer"
-            }
-        ]
     }
 }
