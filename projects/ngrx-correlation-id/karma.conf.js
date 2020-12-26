@@ -9,15 +9,15 @@ module.exports = function (config) {
         basePath: '',
         frameworks: ['jasmine', '@angular-devkit/build-angular'],
         plugins: [
-            require('karma-jasmine'),
+            require('@angular-devkit/build-angular/plugins/karma'),
             require('karma-chrome-launcher'),
-            require('karma-coverage-istanbul-reporter'),
+            require('karma-coverage'),
+            require('karma-jasmine'),
             require('karma-jasmine-html-reporter'),
             require('karma-junit-reporter'),
-            require('@angular-devkit/build-angular/plugins/karma'),
         ],
         client: {
-            clearContext: false, // leave Jasmine Spec Runner output visible in browser
+            clearContext: false,
         },
         reporters: ['dots', 'junit'],
         port: 9876,
@@ -25,7 +25,6 @@ module.exports = function (config) {
         logLevel: config.LOG_INFO,
         autoWatch: false,
         singleRun: true,
-        restartOnFileChange: true,
         browsers: ['ChromeHeadlessNoSandbox'],
         customLaunchers: {
             ChromeHeadlessNoSandbox: {
@@ -33,10 +32,18 @@ module.exports = function (config) {
                 flags: ['--no-sandbox'],
             },
         },
-        coverageIstanbulReporter: {
+        coverageReporter: {
             dir: require('path').join(__dirname, '../../test-reports/coverage'),
-            reports: ['html', 'lcovonly'],
-            fixWebpackSourcePaths: true,
+            reporters: [
+                {
+                    type: 'html',
+                    subdir: 'html',
+                },
+                {
+                    type: 'lcovonly',
+                    subdir: 'lcov',
+                },
+            ],
         },
         junitReporter: {
             outputDir: require('path').join(__dirname, '../../test-reports'),
