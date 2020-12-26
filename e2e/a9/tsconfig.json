@@ -15,8 +15,6 @@
         "emitDecoratorMetadata": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
-        "types": ["jasmine", "node"]
-    },
-    "files": ["src/main.ts", "src/test.ts", "src/polyfills.ts"],
-    "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
+        "types": ["jasmine", "jasminewd2", "node"]
+    }
 }

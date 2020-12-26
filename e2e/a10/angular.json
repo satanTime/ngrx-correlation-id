@@ -3,9 +3,13 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "app": {
+        "a10": {
             "projectType": "application",
-            "schematics": {},
+            "schematics": {
+                "@schematics/angular:application": {
+                    "strict": true
+                }
+            },
             "root": "",
             "sourceRoot": "src",
             "prefix": "app",
@@ -13,62 +17,31 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/app",
+                        "outputPath": "dist/a10",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
-                        "tsConfig": "tsconfig.app.json",
                         "aot": true,
-                        "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.css"],
-                        "scripts": []
+                        "progress": false
                     },
                     "configurations": {
-                        "production": {
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
-                                }
-                            ],
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "budgets": [
-                                {
-                                    "type": "initial",
-                                    "maximumWarning": "2mb",
-                                    "maximumError": "5mb"
-                                },
-                                {
-                                    "type": "anyComponentStyle",
-                                    "maximumWarning": "6kb",
-                                    "maximumError": "10kb"
-                                }
-                            ]
+                        "ivy-on": {
+                            "tsConfig": "tsconfig.ivy-on.json"
+                        },
+                        "ivy-off": {
+                            "tsConfig": "tsconfig.ivy-off.json"
                         }
                     }
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "browserTarget": "app:build"
-                    },
                     "configurations": {
-                        "production": {
-                            "browserTarget": "app:build:production"
+                        "ivy-on": {
+                            "browserTarget": "a10:build:ivy-on"
+                        },
+                        "ivy-off": {
+                            "browserTarget": "a10:build:ivy-off"
                         }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "app:build"
                     }
                 },
                 "test": {
@@ -76,27 +49,32 @@
                     "options": {
                         "main": "src/test.ts",
                         "polyfills": "src/polyfills.ts",
-                        "tsConfig": "tsconfig.spec.json",
-                        "karmaConfig": "karma.conf.js",
-                        "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.css"],
-                        "scripts": []
+                        "karmaConfig": "karma.conf.js"
+                    },
+                    "configurations": {
+                        "ivy-on": {
+                            "tsConfig": "tsconfig.ivy-on.json"
+                        },
+                        "ivy-off": {
+                            "tsConfig": "tsconfig.ivy-off.json"
+                        }
                     }
                 },
                 "e2e": {
                     "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "e2e/protractor.conf.js",
-                        "devServerTarget": "app:serve"
-                    },
                     "configurations": {
-                        "production": {
-                            "devServerTarget": "app:serve:production"
+                        "ivy-on": {
+                            "devServerTarget": "a10:serve:ivy-on",
+                            "protractorConfig": "e2e/protractor.ivy-on.js"
+                        },
+                        "ivy-off": {
+                            "devServerTarget": "a10:serve:ivy-off",
+                            "protractorConfig": "e2e/protractor.ivy-off.js"
                         }
                     }
                 }
             }
         }
     },
-    "defaultProject": "app"
+    "defaultProject": "a10"
 }
