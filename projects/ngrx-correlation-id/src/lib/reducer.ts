@@ -75,7 +75,7 @@ export function cidReducer(state: State = initialState, action: CidActions): Sta
     return state;
 }
 
-export const selectCidFeature = createFeatureSelector<State>('ngrxCorrelationId');
+export const selectCidFeature: <T extends object>(state: T) => State = createFeatureSelector('ngrxCorrelationId');
 
 const selectCidResult = new Map<string, CidTask>();
 const selectCidInternal: any = (state: any, cid: string) => {
