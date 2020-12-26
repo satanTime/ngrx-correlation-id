@@ -2,6 +2,7 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "outDir": "../../out-tsc/lib",
+        "declarationMap": true,
         "target": "es2015",
         "module": "es2015",
         "moduleResolution": "node",
@@ -10,12 +11,11 @@
         "inlineSources": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "importHelpers": true,
+        "importHelpers": false,
         "types": [],
         "lib": ["dom", "es2015"]
     },
     "angularCompilerOptions": {
-        "annotateForClosureCompiler": true,
         "skipTemplateCodegen": true,
         "strictMetadataEmit": true,
         "fullTemplateTypeCheck": true,
