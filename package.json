@@ -80,7 +80,7 @@
         "@semantic-release/github": "7.2.0",
         "@types/jasmine": "3.6.2",
         "@types/jasminewd2": "2.0.8",
-        "@types/node": "12.19.11",
+        "@types/node": "12.19.12",
         "codecov": "3.8.1",
         "codelyzer": "6.0.1",
         "commitlint": "11.0.0",
