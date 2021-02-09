@@ -12,7 +12,7 @@
     "private": true,
     "peerDependencies": {
         "ngrx-correlation-id": "*",
-        "puppeteer": "7.0.1"
+        "puppeteer": "7.0.4"
     },
     "dependencies": {
         "@angular/animations": "7.2.16",
