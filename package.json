@@ -96,7 +96,7 @@
         "karma-junit-reporter": "2.0.1",
         "lint-staged": "11.0.0",
         "ng-packagr": "11.2.4",
-        "prettier": "2.2.1",
+        "prettier": "2.3.0",
         "protractor": "7.0.0",
         "puppeteer": "6.0.0",
         "rxjs-tslint-rules": "4.34.8",
