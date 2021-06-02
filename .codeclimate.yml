@@ -1,0 +1,53 @@
+# https://docs.codeclimate.com/docs/advanced-configuration
+version: '2'
+exclude_patterns:
+  - '.circleci/'
+  - '.github/'
+  - '.husky/'
+  - 'dist/'
+  - 'docker/'
+  - 'docs/'
+  - 'e2e/'
+  - 'examples/'
+  - 'node_modules/'
+  - 'test-reports/'
+  - 'tests/'
+  - 'tmp/'
+  - '.codeclimate.yml'
+  - '.dockerignore'
+  - '.editorconfig'
+  - '.gitignore'
+  - '.lintstagedrc.js'
+  - '.nvmrc'
+  - '.prettierignore'
+  - '.prettierrc.yml'
+  - '.releaserc.yml'
+  - 'CODEOWNERS'
+  - 'Dockerfile'
+  - 'LICENSE'
+  - 'karma-test-shim.ts'
+  - 'karma.conf.ts'
+  - 'renovate.json'
+  - '**/*.json'
+  - '**/*.md'
+  - '**/*.yml'
+  - '**/*.spec.ts'
+  - '**/*.fixtures.ts'
+  - '**/karma.conf.js'
+plugins:
+  structure:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        typescript:
+checks:
+  method-complexity:
+    config:
+      threshold: 10
+  return-statements:
+    enabled: false
+  similar-code:
+    config:
+      threshold: 100
