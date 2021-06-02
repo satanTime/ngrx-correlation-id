@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/satanTime/ngrx-correlation-id/compare/v1.1.0...v1.1.1) (2021-06-02)
+
+
+### Bug Fixes
+
+* **core:** generic type of payload action ([c39764a](https://github.com/satanTime/ngrx-correlation-id/commit/c39764a3e9ab8257f34faf1ff58a40055f7f6120))
+* **core:** umd module id for @ngrx/store ([4c4f7f8](https://github.com/satanTime/ngrx-correlation-id/commit/4c4f7f821fde3eaf79e8ef692cb5c1468a1ea4da))
+
 # [1.1.0](https://github.com/satanTime/ngrx-correlation-id/compare/v1.0.3...v1.1.0) (2020-12-27)
 
 ### Bug Fixes
