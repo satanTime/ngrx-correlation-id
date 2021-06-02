@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/satanTime/ngrx-correlation-id/compare/v1.1.1...v1.1.2) (2021-06-02)
+
+### Bug Fixes
+
+- **core:** umd module id for ngrx/store ([fe8244d](https://github.com/satanTime/ngrx-correlation-id/commit/fe8244d7fa0dd264a89a4a7b096347c7b664cb8d))
+- **e2e:** relative imports ([8ba7ee3](https://github.com/satanTime/ngrx-correlation-id/commit/8ba7ee32861bd4153c599ce684eb5dd971890309))
+
 ## [1.1.1](https://github.com/satanTime/ngrx-correlation-id/compare/v1.1.0...v1.1.1) (2021-06-02)
 
 ### Bug Fixes
