@@ -64,6 +64,8 @@ jobs:
           key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
       - restore_cache:
           key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
+      - restore_cache:
+          key: a12-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a12/package.json" }}-{{ checksum "e2e/a12/package-lock.json" }}
       - run:
           name: NPM Install
           command: |
@@ -84,6 +86,9 @@ jobs:
             fi
             if [ ! -d "e2e/a11/node_modules/" ]; then
               npm run i:ci:a11
+            fi
+            if [ ! -d "e2e/a12/node_modules/" ]; then
+              npm run i:ci:a12
             fi
       - save_cache:
           key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
@@ -109,6 +114,10 @@ jobs:
           key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
           paths:
             - ./e2e/a11/node_modules
+      - save_cache:
+          key: a12-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a12/package.json" }}-{{ checksum "e2e/a12/package-lock.json" }}
+          paths:
+            - ./e2e/a12/node_modules
   'Angular 6':
     docker:
       - image: satantime/puppeteer-node:14.17.0-buster
@@ -271,6 +280,24 @@ jobs:
       - run:
           name: Angular 11 Build
           command: npm run b:a11:on
+  'Angular 12 with Ivy':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: a12-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a12/package.json" }}-{{ checksum "e2e/a12/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a12
+      - run:
+          name: Angular 12 E2E
+          command: npm run e2e:a12:on
+      - run:
+          name: Angular 12 Build
+          command: npm run b:a12:on
 workflows:
   version: 2
   build:
@@ -304,5 +331,8 @@ workflows:
           requires:
             - Install
       - 'Angular 11 with Ivy':
+          requires:
+            - Install
+      - 'Angular 12 with Ivy':
           requires:
             - Install
