@@ -66,7 +66,25 @@ jobs:
           key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
       - run:
           name: NPM Install
-          command: npm run ci:a
+          command: |
+            if [ ! -d "e2e/a6/node_modules/" ]; then
+              npm run i:ci:a6
+            fi
+            if [ ! -d "e2e/a7/node_modules/" ]; then
+              npm run i:ci:a7
+            fi
+            if [ ! -d "e2e/a8/node_modules/" ]; then
+              npm run i:ci:a8
+            fi
+            if [ ! -d "e2e/a9/node_modules/" ]; then
+              npm run i:ci:a9
+            fi
+            if [ ! -d "e2e/a10/node_modules/" ]; then
+              npm run i:ci:a10
+            fi
+            if [ ! -d "e2e/a11/node_modules/" ]; then
+              npm run i:ci:a11
+            fi
       - save_cache:
           key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
           paths:
@@ -99,8 +117,6 @@ jobs:
       - attach_workspace:
           at: dist
       - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-      - restore_cache:
           key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
       - run:
           name: Spreading Build
@@ -118,8 +134,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: dist
-      - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - restore_cache:
           key: a7-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a7/package.json" }}-{{ checksum "e2e/a7/package-lock.json" }}
       - run:
@@ -139,8 +153,6 @@ jobs:
       - attach_workspace:
           at: dist
       - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-      - restore_cache:
           key: a8-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a8/package.json" }}-{{ checksum "e2e/a8/package-lock.json" }}
       - run:
           name: Spreading Build
@@ -158,8 +170,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: dist
-      - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - restore_cache:
           key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
       - run:
@@ -179,8 +189,6 @@ jobs:
       - attach_workspace:
           at: dist
       - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-      - restore_cache:
           key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
       - run:
           name: Spreading Build
@@ -198,8 +206,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: dist
-      - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - restore_cache:
           key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
       - run:
@@ -219,8 +225,6 @@ jobs:
       - attach_workspace:
           at: dist
       - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-      - restore_cache:
           key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
       - run:
           name: Spreading Build
@@ -239,8 +243,6 @@ jobs:
       - attach_workspace:
           at: dist
       - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-      - restore_cache:
           key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
       - run:
           name: Spreading Build
@@ -258,8 +260,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: dist
-      - restore_cache:
-          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
       - restore_cache:
           key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
       - run:
