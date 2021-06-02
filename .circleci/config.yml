@@ -1,303 +1,303 @@
 version: 2.1
 parameters:
-    lockindex:
-        type: string
-        default: '1'
+  lockindex:
+    type: string
+    default: '1'
 jobs:
-    Core:
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - run:
-                  name: NPM Install
-                  command: npm install
-            - save_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-                  paths:
-                      - ./node_modules
-            - run:
-                  name: Build
-                  command: npm run build
-            - run:
-                  name: Lint
-                  command: npm run lint
-            - run:
-                  name: Tests
-                  command: npm run test -- --code-coverage
-            - run:
-                  name: Collecting Coverage coveralls.io
-                  command: ./node_modules/.bin/coveralls < test-reports/coverage/lcov/lcov.info
-            - run:
-                  name: Collecting Coverage codecov.io
-                  command: ./node_modules/.bin/codecov -f test-reports/coverage/lcov/lcov.info --disable=gcov
-            - store_test_results:
-                  path: ./test-reports
-            - store_artifacts:
-                  path: ./test-reports/coverage
-                  prefix: coverage
-            - persist_to_workspace:
-                  root: dist
-                  paths:
-                      - .
-    'Install':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - restore_cache:
-                  key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
-            - restore_cache:
-                  key: a7-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a7/package.json" }}-{{ checksum "e2e/a7/package-lock.json" }}
-            - restore_cache:
-                  key: a8-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a8/package.json" }}-{{ checksum "e2e/a8/package-lock.json" }}
-            - restore_cache:
-                  key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
-            - restore_cache:
-                  key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
-            - restore_cache:
-                  key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
-            - run:
-                  name: NPM Install
-                  command: npm run i:a
-            - save_cache:
-                  key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
-                  paths:
-                      - ./e2e/a6/node_modules
-            - save_cache:
-                  key: a7-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a7/package.json" }}-{{ checksum "e2e/a7/package-lock.json" }}
-                  paths:
-                      - ./e2e/a7/node_modules
-            - save_cache:
-                  key: a8-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a8/package.json" }}-{{ checksum "e2e/a8/package-lock.json" }}
-                  paths:
-                      - ./e2e/a8/node_modules
-            - save_cache:
-                  key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
-                  paths:
-                      - ./e2e/a9/node_modules
-            - save_cache:
-                  key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
-                  paths:
-                      - ./e2e/a10/node_modules
-            - save_cache:
-                  key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
-                  paths:
-                      - ./e2e/a11/node_modules
-    'Angular 6':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a6
-            - run:
-                  name: Angular 6 E2E
-                  command: npm run e2e:a6
-            - run:
-                  name: Angular 6 Build
-                  command: npm run b:a6
-    'Angular 7':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a7-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a7/package.json" }}-{{ checksum "e2e/a7/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a7
-            - run:
-                  name: Angular 7 E2E
-                  command: npm run e2e:a7
-            - run:
-                  name: Angular 7 Build
-                  command: npm run b:a7
-    'Angular 8':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a8-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a8/package.json" }}-{{ checksum "e2e/a8/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a8
-            - run:
-                  name: Angular 8 E2E
-                  command: npm run e2e:a8
-            - run:
-                  name: Angular 8 Build
-                  command: npm run b:a8
-    'Angular 9 without Ivy':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a9
-            - run:
-                  name: Angular 9 E2E
-                  command: npm run e2e:a9:off
-            - run:
-                  name: Angular 9 Build
-                  command: npm run b:a9:off
-    'Angular 9 with Ivy':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a9
-            - run:
-                  name: Angular 9 E2E
-                  command: npm run e2e:a9:on
-            - run:
-                  name: Angular 9 Build
-                  command: npm run b:a9:on
-    'Angular 10 without Ivy':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a10
-            - run:
-                  name: Angular 10 E2E
-                  command: npm run e2e:a10:off
-            - run:
-                  name: Angular 10 Build
-                  command: npm run b:a10:off
-    'Angular 10 with Ivy':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a10
-            - run:
-                  name: Angular 10 E2E
-                  command: npm run e2e:a10:on
-            - run:
-                  name: Angular 10 Build
-                  command: npm run b:a10:on
-    'Angular 11 without Ivy':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a11
-            - run:
-                  name: Angular 11 E2E
-                  command: npm run e2e:a11:off
-            - run:
-                  name: Angular 11 Build
-                  command: npm run b:a11:off
-    'Angular 11 with Ivy':
-        docker:
-            - image: satantime/puppeteer-node:14.17.0-buster
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: dist
-            - restore_cache:
-                  key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - restore_cache:
-                  key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
-            - run:
-                  name: Spreading Build
-                  command: npm run s:a11
-            - run:
-                  name: Angular 11 E2E
-                  command: npm run e2e:a11:on
-            - run:
-                  name: Angular 11 Build
-                  command: npm run b:a11:on
+  Core:
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - run:
+          name: NPM Install
+          command: npm install
+      - save_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Build
+          command: npm run build
+      - run:
+          name: Lint
+          command: npm run lint
+      - run:
+          name: Tests
+          command: npm run test -- --code-coverage
+      - run:
+          name: Collecting Coverage coveralls.io
+          command: ./node_modules/.bin/coveralls < test-reports/coverage/lcov/lcov.info
+      - run:
+          name: Collecting Coverage codecov.io
+          command: ./node_modules/.bin/codecov -f test-reports/coverage/lcov/lcov.info --disable=gcov
+      - store_test_results:
+          path: ./test-reports
+      - store_artifacts:
+          path: ./test-reports/coverage
+          prefix: coverage
+      - persist_to_workspace:
+          root: dist
+          paths:
+            - .
+  'Install':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - restore_cache:
+          key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
+      - restore_cache:
+          key: a7-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a7/package.json" }}-{{ checksum "e2e/a7/package-lock.json" }}
+      - restore_cache:
+          key: a8-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a8/package.json" }}-{{ checksum "e2e/a8/package-lock.json" }}
+      - restore_cache:
+          key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
+      - restore_cache:
+          key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
+      - restore_cache:
+          key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
+      - run:
+          name: NPM Install
+          command: npm run i:a
+      - save_cache:
+          key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
+          paths:
+            - ./e2e/a6/node_modules
+      - save_cache:
+          key: a7-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a7/package.json" }}-{{ checksum "e2e/a7/package-lock.json" }}
+          paths:
+            - ./e2e/a7/node_modules
+      - save_cache:
+          key: a8-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a8/package.json" }}-{{ checksum "e2e/a8/package-lock.json" }}
+          paths:
+            - ./e2e/a8/node_modules
+      - save_cache:
+          key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
+          paths:
+            - ./e2e/a9/node_modules
+      - save_cache:
+          key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
+          paths:
+            - ./e2e/a10/node_modules
+      - save_cache:
+          key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
+          paths:
+            - ./e2e/a11/node_modules
+  'Angular 6':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a6
+      - run:
+          name: Angular 6 E2E
+          command: npm run e2e:a6
+      - run:
+          name: Angular 6 Build
+          command: npm run b:a6
+  'Angular 7':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a7-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a7/package.json" }}-{{ checksum "e2e/a7/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a7
+      - run:
+          name: Angular 7 E2E
+          command: npm run e2e:a7
+      - run:
+          name: Angular 7 Build
+          command: npm run b:a7
+  'Angular 8':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a8-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a8/package.json" }}-{{ checksum "e2e/a8/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a8
+      - run:
+          name: Angular 8 E2E
+          command: npm run e2e:a8
+      - run:
+          name: Angular 8 Build
+          command: npm run b:a8
+  'Angular 9 without Ivy':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a9
+      - run:
+          name: Angular 9 E2E
+          command: npm run e2e:a9:off
+      - run:
+          name: Angular 9 Build
+          command: npm run b:a9:off
+  'Angular 9 with Ivy':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a9
+      - run:
+          name: Angular 9 E2E
+          command: npm run e2e:a9:on
+      - run:
+          name: Angular 9 Build
+          command: npm run b:a9:on
+  'Angular 10 without Ivy':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a10
+      - run:
+          name: Angular 10 E2E
+          command: npm run e2e:a10:off
+      - run:
+          name: Angular 10 Build
+          command: npm run b:a10:off
+  'Angular 10 with Ivy':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a10
+      - run:
+          name: Angular 10 E2E
+          command: npm run e2e:a10:on
+      - run:
+          name: Angular 10 Build
+          command: npm run b:a10:on
+  'Angular 11 without Ivy':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a11
+      - run:
+          name: Angular 11 E2E
+          command: npm run e2e:a11:off
+      - run:
+          name: Angular 11 Build
+          command: npm run b:a11:off
+  'Angular 11 with Ivy':
+    docker:
+      - image: satantime/puppeteer-node:14.17.0-buster
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: root-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+      - restore_cache:
+          key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:a11
+      - run:
+          name: Angular 11 E2E
+          command: npm run e2e:a11:on
+      - run:
+          name: Angular 11 Build
+          command: npm run b:a11:on
 workflows:
-    version: 2
-    build:
-        jobs:
+  version: 2
+  build:
+    jobs:
+      - Core
+      - Install:
+          requires:
             - Core
-            - Install:
-                  requires:
-                      - Core
-            - 'Angular 6':
-                  requires:
-                      - Install
-            - 'Angular 7':
-                  requires:
-                      - Install
-            - 'Angular 8':
-                  requires:
-                      - Install
-            - 'Angular 9 without Ivy':
-                  requires:
-                      - Install
-            - 'Angular 9 with Ivy':
-                  requires:
-                      - Install
-            - 'Angular 10 without Ivy':
-                  requires:
-                      - Install
-            - 'Angular 10 with Ivy':
-                  requires:
-                      - Install
-            - 'Angular 11 without Ivy':
-                  requires:
-                      - Install
-            - 'Angular 11 with Ivy':
-                  requires:
-                      - Install
+      - 'Angular 6':
+          requires:
+            - Install
+      - 'Angular 7':
+          requires:
+            - Install
+      - 'Angular 8':
+          requires:
+            - Install
+      - 'Angular 9 without Ivy':
+          requires:
+            - Install
+      - 'Angular 9 with Ivy':
+          requires:
+            - Install
+      - 'Angular 10 without Ivy':
+          requires:
+            - Install
+      - 'Angular 10 with Ivy':
+          requires:
+            - Install
+      - 'Angular 11 without Ivy':
+          requires:
+            - Install
+      - 'Angular 11 with Ivy':
+          requires:
+            - Install

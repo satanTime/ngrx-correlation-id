@@ -7,8 +7,8 @@ import {EntityEffects} from './store/entity.effects';
 import {reducers} from './store/reducers';
 
 @NgModule({
-    declarations: [EntityComponent],
-    imports: [CommonModule, StoreModule.forFeature('users', reducers.users), EffectsModule.forFeature([EntityEffects])],
-    exports: [EntityComponent],
+  declarations: [EntityComponent],
+  imports: [CommonModule, StoreModule.forFeature('users', reducers.users), EffectsModule.forFeature([EntityEffects])],
+  exports: [EntityComponent],
 })
 export class EntityModule {}

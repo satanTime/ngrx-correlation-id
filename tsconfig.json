@@ -1,35 +1,35 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "baseUrl": "./",
-        "downlevelIteration": true,
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "module": "es2020",
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "target": "es2015",
-        "lib": ["es2017", "dom"],
-        "paths": {
-            "ngrx-correlation-id": ["dist/ngrx-correlation-id"],
-            "ngrx-correlation-id/*": ["dist/ngrx-correlation-id/*"]
-        },
-        "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": true,
-        "noImplicitReturns": false,
-        "noImplicitThis": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "strictFunctionTypes": false,
-        "strictPropertyInitialization": false,
-        "strictNullChecks": true
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "downlevelIteration": true,
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2020",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es2015",
+    "lib": ["es2017", "dom"],
+    "paths": {
+      "ngrx-correlation-id": ["dist/ngrx-correlation-id"],
+      "ngrx-correlation-id/*": ["dist/ngrx-correlation-id/*"]
     },
-    "plugins": [
-        {
-            "name": "typescript-tslint-plugin",
-            "alwaysShowRuleFailuresAsWarnings": false
-        }
-    ]
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictFunctionTypes": false,
+    "strictPropertyInitialization": false,
+    "strictNullChecks": true
+  },
+  "plugins": [
+    {
+      "name": "typescript-tslint-plugin",
+      "alwaysShowRuleFailuresAsWarnings": false
+    }
+  ]
 }

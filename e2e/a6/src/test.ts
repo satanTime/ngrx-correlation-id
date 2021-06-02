@@ -12,5 +12,5 @@ getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDyn
 const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 for (const key of context.keys()) {
-    context(key);
+  context(key);
 }

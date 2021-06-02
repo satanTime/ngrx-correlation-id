@@ -1,27 +1,27 @@
 {
-    "name": "ngrx-correlation-id",
-    "version": "1.1.0",
-    "description": "NGRX Store feature to track tasks via correlation id",
-    "peerDependencies": {
-        "@angular/common": "^6.0.0-rc.0 || >= 6.0.0",
-        "@angular/core": "^6.0.0-rc.0 || >= 6.0.0",
-        "@ngrx/store": "^6.0.0-rc.0 || >= 6.0.0",
-        "rxjs": ">= 6.2.0"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git@github.com:satanTime/ngrx-correlation-id.git"
-    },
-    "keywords": [
-        "ngrx",
-        "correlationId",
-        "correlation",
-        "id"
-    ],
-    "author": "MG. <m@sudo.eu>",
-    "license": "Apache-2.0",
-    "bugs": {
-        "url": "https://github.com/satanTime/ngrx-correlation-id/issues"
-    },
-    "homepage": "https://github.com/satanTime/ngrx-correlation-id#readme"
+  "name": "ngrx-correlation-id",
+  "version": "1.1.0",
+  "description": "NGRX Store feature to track tasks via correlation id",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || >= 6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || >= 6.0.0",
+    "@ngrx/store": "^6.0.0-rc.0 || >= 6.0.0",
+    "rxjs": ">= 6.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:satanTime/ngrx-correlation-id.git"
+  },
+  "keywords": [
+    "ngrx",
+    "correlationId",
+    "correlation",
+    "id"
+  ],
+  "author": "MG. <m@sudo.eu>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/satanTime/ngrx-correlation-id/issues"
+  },
+  "homepage": "https://github.com/satanTime/ngrx-correlation-id#readme"
 }

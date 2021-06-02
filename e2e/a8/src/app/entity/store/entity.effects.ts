@@ -7,30 +7,30 @@ import {loadUser, upsertUser} from 'src/app/entity/store/user/user.actions';
 
 @Injectable()
 export class EntityEffects {
-    public readonly load$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(loadUser),
-            switchMap(({cid, fail}) =>
-                cidTask(
-                    cid,
-                    timer(150).pipe(
-                        switchMap(value => (fail ? throwError('effect') : of(value))),
-                        mapTo(
-                            upsertUser({
-                                user: {
-                                    id: '1',
-                                    name: 'name',
-                                },
-                            }),
-                        ),
-                        switchMap(userAction => of(cidPayload({cid: cid, payload: userAction.user.id}), userAction)),
-                    ),
-                ),
+  public readonly load$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadUser),
+      switchMap(({cid, fail}) =>
+        cidTask(
+          cid,
+          timer(150).pipe(
+            switchMap(value => (fail ? throwError('effect') : of(value))),
+            mapTo(
+              upsertUser({
+                user: {
+                  id: '1',
+                  name: 'name',
+                },
+              }),
             ),
-            catchError(() => EMPTY),
-            repeat(),
+            switchMap(userAction => of(cidPayload({cid: cid, payload: userAction.user.id}), userAction)),
+          ),
         ),
-    );
+      ),
+      catchError(() => EMPTY),
+      repeat(),
+    ),
+  );
 
-    constructor(protected readonly actions$: Actions) {}
+  constructor(protected readonly actions$: Actions) {}
 }
