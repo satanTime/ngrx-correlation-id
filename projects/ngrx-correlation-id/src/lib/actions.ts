@@ -28,16 +28,16 @@ export const cidEnd: {
     type: 'ngrx-correlation-id-end';
 } = cidEndInternal;
 
-export class CidPayload implements Action {
+export class CidPayload<T = any> implements Action {
     public readonly type: 'ngrx-correlation-id-payload' = 'ngrx-correlation-id-payload';
 
-    constructor(public readonly cid: string, public readonly payload?: CidTask['payload']) {}
+    constructor(public readonly cid: string, public readonly payload?: CidTask<T>['payload']) {}
 }
 
 export const cidPayloadInternal: any = (props: any) => new CidPayload(props.cid, props.payload);
 cidPayloadInternal.type = 'ngrx-correlation-id-payload';
 export const cidPayload: {
-    (props: {cid: string; payload: CidTask['payload']}): CidPayload;
+    <T = any>(props: {cid: string; payload: CidTask<T>['payload']}): CidPayload;
     type: 'ngrx-correlation-id-payload';
 } = cidPayloadInternal;
 

@@ -8,10 +8,10 @@ export interface CidTask<T = any> {
     payload?: T;
 }
 
-export interface State {
+export interface State<T = any> {
     tasks: Array<string>;
     payloads: {
-        [taskId: string]: CidTask['payload'];
+        [taskId: string]: CidTask<T>['payload'];
     };
 }
 
