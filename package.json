@@ -2,6 +2,7 @@
   "name": "ngrx-correlation-id",
   "version": "1.1.1",
   "scripts": {
+    "postinstall": "husky install",
     "ng": "ng",
     "build": "rm -Rf tmp && rm -Rf dist && ng build --prod && cp LICENSE dist/ngrx-correlation-id && cp README.md dist/ngrx-correlation-id",
     "test": "ng test",
@@ -116,12 +117,5 @@
       "LICENSE",
       "README.md"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged && npm run lint && npm run test",
-      "post-commit": "git update-index --again"
-    }
   }
 }

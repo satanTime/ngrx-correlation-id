@@ -3,8 +3,8 @@ import {Store} from '@ngrx/store';
 import {cidEnd, cidPayload, cidRemove, cidStart, CidTask, cidWait, selectCid} from 'ngrx-correlation-id';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {repeatWhen, startWith, tap} from 'rxjs/operators';
-import {loadUser} from 'src/app/entity/store/user/user.actions';
 import {selectUsers, State} from './store/reducers';
+import {loadUser} from './store/user/user.actions';
 
 @Component({
   selector: 'app-entity',
