@@ -18,6 +18,10 @@
       "enabled": false
     },
     {
+      "packagePatterns": ["npm"],
+      "allowedVersions": "/^6\\./"
+    },
+    {
       "packageNames": ["puppeteer"],
       "groupName": "puppeteer",
       "groupSlug": "puppeteer"
