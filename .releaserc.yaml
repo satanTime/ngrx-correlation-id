@@ -8,8 +8,6 @@ plugins:
   - - '@semantic-release/exec'
     - prepareCmd: npm test
   - - '@semantic-release/exec'
-    - prepareCmd: npm run e2e
-  - - '@semantic-release/exec'
     - prepareCmd: npm run b:a
   - '@semantic-release/release-notes-generator'
   - - '@semantic-release/changelog'
