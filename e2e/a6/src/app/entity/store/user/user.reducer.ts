@@ -9,10 +9,10 @@ export const adapter: EntityAdapter<User> = createEntityAdapter<User>();
 export const initialState: State = adapter.getInitialState();
 
 export function reducer(state = initialState, action: UserActions) {
-    switch (action.type) {
-        case '[User] Upsert User':
-            return adapter.upsertOne(action.user, state);
-    }
+  switch (action.type) {
+    case '[User] Upsert User':
+      return adapter.upsertOne(action.user, state);
+  }
 
-    return state;
+  return state;
 }

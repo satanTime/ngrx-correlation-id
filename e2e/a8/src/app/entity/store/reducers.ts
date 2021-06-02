@@ -3,11 +3,11 @@ import {ActionReducerMap, createFeatureSelector, createSelector} from '@ngrx/sto
 import * as fromUser from './user/user.reducer';
 
 export interface State {
-    users: fromUser.State;
+  users: fromUser.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-    users: fromUser.reducer,
+  users: fromUser.reducer,
 };
 
 // feature selectors

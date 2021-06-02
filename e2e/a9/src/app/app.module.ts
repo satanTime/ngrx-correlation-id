@@ -9,16 +9,16 @@ import {AppComponent} from './app.component';
 import {EntityModule} from './entity/entity.module';
 
 @NgModule({
-    declarations: [AppComponent],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        StoreModule.forRoot({}),
-        EffectsModule.forRoot([]),
-        NgrxCorrelationIdModule,
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    NgrxCorrelationIdModule,
 
-        EntityModule,
-    ],
-    bootstrap: [AppComponent],
+    EntityModule,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,52 +1,52 @@
 {
-    "name": "a8",
-    "version": "0.0.0",
-    "scripts": {
-        "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
-        "test": "ng test",
-        "e2e": "ng e2e --webdriver-update=false",
-        "postinstall": "webdriver-manager update --versions.chrome 91.0.4472.19 --gecko=false"
-    },
-    "private": true,
-    "peerDependencies": {
-        "ngrx-correlation-id": "*",
-        "puppeteer": "10.0.0"
-    },
-    "dependencies": {
-        "@angular/animations": "8.2.14",
-        "@angular/common": "8.2.14",
-        "@angular/compiler": "8.2.14",
-        "@angular/core": "8.2.14",
-        "@angular/forms": "8.2.14",
-        "@angular/platform-browser": "8.2.14",
-        "@angular/platform-browser-dynamic": "8.2.14",
-        "@angular/router": "8.2.14",
-        "@ngrx/effects": "8.6.1",
-        "@ngrx/entity": "8.6.1",
-        "@ngrx/store": "8.6.1",
-        "classlist.js": "1.1.20150312",
-        "rxjs": "6.4.0",
-        "tslib": "1.14.1",
-        "zone.js": "0.9.1"
-    },
-    "devDependencies": {
-        "@angular-devkit/build-angular": "0.803.29",
-        "@angular/cli": "8.3.29",
-        "@angular/compiler-cli": "8.2.14",
-        "@angular/language-service": "8.2.14",
-        "@types/jasmine": "3.4.6",
-        "@types/jasminewd2": "2.0.9",
-        "@types/node": "8.10.66",
-        "jasmine-core": "3.4.0",
-        "jasmine-spec-reporter": "4.2.1",
-        "karma": "4.4.1",
-        "karma-chrome-launcher": "2.2.0",
-        "karma-jasmine": "2.0.1",
-        "karma-jasmine-html-reporter": "1.5.4",
-        "protractor": "5.4.4",
-        "ts-node": "7.0.1",
-        "typescript": "3.5.3"
-    }
+  "name": "a8",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "e2e": "ng e2e --webdriver-update=false",
+    "postinstall": "webdriver-manager update --versions.chrome 91.0.4472.19 --gecko=false"
+  },
+  "private": true,
+  "peerDependencies": {
+    "ngrx-correlation-id": "*",
+    "puppeteer": "10.0.0"
+  },
+  "dependencies": {
+    "@angular/animations": "8.2.14",
+    "@angular/common": "8.2.14",
+    "@angular/compiler": "8.2.14",
+    "@angular/core": "8.2.14",
+    "@angular/forms": "8.2.14",
+    "@angular/platform-browser": "8.2.14",
+    "@angular/platform-browser-dynamic": "8.2.14",
+    "@angular/router": "8.2.14",
+    "@ngrx/effects": "8.6.1",
+    "@ngrx/entity": "8.6.1",
+    "@ngrx/store": "8.6.1",
+    "classlist.js": "1.1.20150312",
+    "rxjs": "6.4.0",
+    "tslib": "1.14.1",
+    "zone.js": "0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "0.803.29",
+    "@angular/cli": "8.3.29",
+    "@angular/compiler-cli": "8.2.14",
+    "@angular/language-service": "8.2.14",
+    "@types/jasmine": "3.4.6",
+    "@types/jasminewd2": "2.0.9",
+    "@types/node": "8.10.66",
+    "jasmine-core": "3.4.0",
+    "jasmine-spec-reporter": "4.2.1",
+    "karma": "4.4.1",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-jasmine": "2.0.1",
+    "karma-jasmine-html-reporter": "1.5.4",
+    "protractor": "5.4.4",
+    "ts-node": "7.0.1",
+    "typescript": "3.5.3"
+  }
 }

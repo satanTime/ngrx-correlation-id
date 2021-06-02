@@ -10,10 +10,10 @@ export const adapter: EntityAdapter<User> = createEntityAdapter<User>();
 export const initialState: State = adapter.getInitialState();
 
 const internalReducer = createReducer(
-    initialState,
-    on(upsertUser, (state, {user}) => adapter.upsertOne(user, state)),
+  initialState,
+  on(upsertUser, (state, {user}) => adapter.upsertOne(user, state)),
 );
 
 export function reducer(state = initialState, action) {
-    return internalReducer(state, action);
+  return internalReducer(state, action);
 }

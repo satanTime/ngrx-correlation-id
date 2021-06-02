@@ -1,40 +1,40 @@
 release:
-    branches:
-        - master
+  branches:
+    - master
 plugins:
-    - '@semantic-release/commit-analyzer'
-    - - '@semantic-release/exec'
-      - prepareCmd: npm run lint && npm test && npm run e2e && npm run b:a
-    - '@semantic-release/release-notes-generator'
-    - - '@semantic-release/changelog'
-      - changelogFile: CHANGELOG.md
-    - - '@semantic-release/npm'
-      - npmPublish: false
-    - - '@semantic-release/npm'
-      - pkgRoot: projects/ngrx-correlation-id
-        npmPublish: false
-    - - '@semantic-release/npm'
-      - tarballDir: tmp
-        npmPublish: false
-        pkgRoot: dist/ngrx-correlation-id
-    - - '@semantic-release/github'
-      - assets:
-            - tmp/*.tgz
-        successComment: >-
-            [v${nextRelease.version}](https://github.com/satanTime/ngrx-correlation-id/releases/tag/v${nextRelease.version})
-            has been released and contains a fix for the issue.
-            Feel free to reopen the issue or to submit a new one if you meet any problems.
-        failTitle: false
-        failComment: false
-        labels: false
-        releasedLabels:
-            - released
-            - >-
-                v${nextRelease.version}
-    - - '@semantic-release/git'
-      - message: 'chore(release): v${nextRelease.version}'
-        assets:
-            - projects/ngrx-correlation-id/package.json
-            - CHANGELOG.md
-            - package.json
-            - package-lock.json
+  - '@semantic-release/commit-analyzer'
+  - - '@semantic-release/exec'
+    - prepareCmd: npm run lint && npm test && npm run e2e && npm run b:a
+  - '@semantic-release/release-notes-generator'
+  - - '@semantic-release/changelog'
+    - changelogFile: CHANGELOG.md
+  - - '@semantic-release/npm'
+    - npmPublish: false
+  - - '@semantic-release/npm'
+    - pkgRoot: projects/ngrx-correlation-id
+      npmPublish: false
+  - - '@semantic-release/npm'
+    - tarballDir: tmp
+      npmPublish: false
+      pkgRoot: dist/ngrx-correlation-id
+  - - '@semantic-release/github'
+    - assets:
+        - tmp/*.tgz
+      successComment: >-
+        [v${nextRelease.version}](https://github.com/satanTime/ngrx-correlation-id/releases/tag/v${nextRelease.version})
+        has been released and contains a fix for the issue.
+        Feel free to reopen the issue or to submit a new one if you meet any problems.
+      failTitle: false
+      failComment: false
+      labels: false
+      releasedLabels:
+        - released
+        - >-
+          v${nextRelease.version}
+  - - '@semantic-release/git'
+    - message: 'chore(release): v${nextRelease.version}'
+      assets:
+        - projects/ngrx-correlation-id/package.json
+        - CHANGELOG.md
+        - package.json
+        - package-lock.json
