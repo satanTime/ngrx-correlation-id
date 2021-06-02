@@ -9,6 +9,7 @@ browserslist
 favicon.ico
 package-lock.json
 
+.husky
 dist
 node_modules
 test-reports

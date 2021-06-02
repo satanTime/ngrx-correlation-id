@@ -3,7 +3,7 @@ import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {cidPayload, cidTask} from 'ngrx-correlation-id';
 import {EMPTY, from, of, throwError, timer} from 'rxjs';
 import {catchError, map, mapTo, repeat, switchMap} from 'rxjs/operators';
-import {loadUser, upsertUser} from 'src/app/entity/store/user/user.actions';
+import {loadUser, upsertUser} from './user/user.actions';
 
 @Injectable()
 export class EntityEffects {

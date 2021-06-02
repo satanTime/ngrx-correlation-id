@@ -2,6 +2,7 @@
   "name": "ngrx-correlation-id",
   "version": "1.1.1",
   "scripts": {
+    "postinstall": "husky install",
     "ng": "ng",
     "build": "rm -Rf tmp && rm -Rf dist && ng build --prod && cp LICENSE dist/ngrx-correlation-id && cp README.md dist/ngrx-correlation-id",
     "test": "ng test",
@@ -13,6 +14,13 @@
     "i:a9": "cd e2e/a9 && npm install --no-audit --legacy-peer-deps --no-optional --ignore-scripts && npm run postinstall && ./node_modules/.bin/ngcc",
     "i:a10": "cd e2e/a10 && npm install --no-audit --legacy-peer-deps --no-optional --ignore-scripts && npm run postinstall && ./node_modules/.bin/ngcc",
     "i:a11": "cd e2e/a11 && npm install --no-audit --legacy-peer-deps --no-optional --ignore-scripts && npm run postinstall && ./node_modules/.bin/ngcc",
+    "ci:a": "npm run ci:a6 && npm run ci:a7 && npm run ci:a8 && npm run ci:a9 && npm run ci:a10 && npm run ci:a11",
+    "ci:a6": "cd e2e/a6 && npm ci --no-optional --ignore-scripts && npm run postinstall",
+    "ci:a7": "cd e2e/a7 && npm ci --no-optional --ignore-scripts && npm run postinstall",
+    "ci:a8": "cd e2e/a8 && npm ci --no-optional --ignore-scripts && npm run postinstall",
+    "ci:a9": "cd e2e/a9 && npm ci --no-optional --ignore-scripts && npm run postinstall && ./node_modules/.bin/ngcc",
+    "ci:a10": "cd e2e/a10 && npm ci --no-optional --ignore-scripts && npm run postinstall && ./node_modules/.bin/ngcc",
+    "ci:a11": "cd e2e/a11 && npm ci --no-optional --ignore-scripts && npm run postinstall && ./node_modules/.bin/ngcc",
     "s:a": "npm run s:a6 && npm run s:a7 && npm run s:a8 && npm run s:a9 && npm run s:a10 && npm run s:a11",
     "s:a6": "P=e2e/a6/node_modules/ngrx-correlation-id && rm -Rf $P && mkdir -p $P && cp -R dist/ngrx-correlation-id/. $P",
     "s:a7": "P=e2e/a7/node_modules/ngrx-correlation-id && rm -Rf $P && mkdir -p $P && cp -R dist/ngrx-correlation-id/. $P",
@@ -116,12 +124,5 @@
       "LICENSE",
       "README.md"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged && npm run lint && npm run test",
-      "post-commit": "git update-index --again"
-    }
   }
 }
