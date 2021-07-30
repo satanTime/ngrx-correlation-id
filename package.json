@@ -74,7 +74,7 @@
     "@ngrx/effects": "12.3.0",
     "@ngrx/entity": "12.3.0",
     "@ngrx/store": "12.3.0",
-    "core-js": "3.15.2",
+    "core-js": "3.16.0",
     "rxjs": "6.6.7",
     "tslib": "2.3.0",
     "zone.js": "0.11.4"
