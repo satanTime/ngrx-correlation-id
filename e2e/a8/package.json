@@ -49,7 +49,5 @@
     "ts-node": "7.0.1",
     "typescript": "3.5.3"
   },
-  "engines": {
-    "npm": "6.14.14"
-  }
+  "lockfileVersion": 1
 }
