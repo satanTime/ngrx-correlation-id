@@ -1,3 +1,9 @@
+## [1.1.3](https://github.com/satanTime/ngrx-correlation-id/compare/v1.1.2...v1.1.3) (2021-08-22)
+
+### Bug Fixes
+
+- **core:** removal respects cid ([bce032f](https://github.com/satanTime/ngrx-correlation-id/commit/bce032f01e763eed6c9fb474a9dceb7bb742d7b6))
+
 ## [1.1.2](https://github.com/satanTime/ngrx-correlation-id/compare/v1.1.1...v1.1.2) (2021-06-02)
 
 ### Bug Fixes
