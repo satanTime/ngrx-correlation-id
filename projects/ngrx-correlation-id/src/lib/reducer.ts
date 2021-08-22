@@ -62,8 +62,8 @@ export function cidReducer(state: State = initialState, action: CidActions): Sta
           state.payloads[action.cid] === undefined
             ? state.payloads
             : Object.keys(state.payloads).reduce<State['payloads']>((result, taskId) => {
-                if (taskId !== action.cid && state.payloads[action.cid] !== undefined) {
-                  result[action.cid] = state.payloads[action.cid];
+                if (taskId !== action.cid && state.payloads[taskId] !== undefined) {
+                  result[taskId] = state.payloads[taskId];
                 }
                 return result;
               }, {}),
