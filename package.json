@@ -119,7 +119,7 @@
     "prettier": "2.4.1",
     "protractor": "7.0.0",
     "puppeteer": "10.1.0",
-    "semantic-release": "17.4.7",
+    "semantic-release": "18.0.0",
     "ts-node": "10.2.1",
     "typescript": "4.3.5"
   },
