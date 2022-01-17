@@ -116,7 +116,7 @@
     "karma-junit-reporter": "2.0.1",
     "lint-staged": "11.2.6",
     "ng-packagr": "12.2.6",
-    "prettier": "2.4.1",
+    "prettier": "2.5.1",
     "protractor": "7.0.0",
     "puppeteer": "10.1.0",
     "semantic-release": "18.0.1",
