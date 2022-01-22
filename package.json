@@ -114,7 +114,7 @@
     "karma-jasmine": "4.0.1",
     "karma-jasmine-html-reporter": "1.7.0",
     "karma-junit-reporter": "2.0.1",
-    "lint-staged": "12.2.1",
+    "lint-staged": "12.2.2",
     "ng-packagr": "12.2.6",
     "prettier": "2.5.1",
     "protractor": "7.0.0",
