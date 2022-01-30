@@ -63,7 +63,7 @@
     "test:cid": "ng test ngrx-correlation-id",
     "test:cid:debug": "ng test ngrx-correlation-id -- --watch --browsers=Chrome",
     "publish": "cd dist/ngrx-correlation-id && npm publish",
-    "release": "export $(cat .env) && semantic-release"
+    "release": "npm run build && export $(cat .env) && semantic-release"
   },
   "repository": {
     "type": "git",

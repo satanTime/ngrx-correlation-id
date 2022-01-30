@@ -12,7 +12,7 @@ plugins:
   - - '@semantic-release/exec'
     - prepareCmd: npx npm test
   - - '@semantic-release/exec'
-    - prepareCmd: npx npm run b:a
+    - prepareCmd: npx npm run s:a && npx npm run b:a
   - '@semantic-release/release-notes-generator'
   - - '@semantic-release/changelog'
     - changelogFile: CHANGELOG.md
