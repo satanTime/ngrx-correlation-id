@@ -1,3 +1,9 @@
+## [1.1.4](https://github.com/satanTime/ngrx-correlation-id/compare/v1.1.3...v1.1.4) (2022-01-30)
+
+### Bug Fixes
+
+- support Angular 13 ([a333823](https://github.com/satanTime/ngrx-correlation-id/commit/a333823f35e27014b87f226d5bdb76633ae340c2))
+
 ## [1.1.3](https://github.com/satanTime/ngrx-correlation-id/compare/v1.1.2...v1.1.3) (2021-08-22)
 
 ### Bug Fixes
