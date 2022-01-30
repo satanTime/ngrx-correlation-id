@@ -18,7 +18,7 @@
     "correlation",
     "id"
   ],
-  "author": "MG. <m@sudo.eu>",
+  "author": "satanTime <m@sudo.eu>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/satanTime/ngrx-correlation-id/issues"
