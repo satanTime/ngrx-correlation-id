@@ -7,6 +7,7 @@
 A ngrx store library to track an asynchronous activity such as a http request, a ngrx effect or anything else.
 
 ### Supports
+- Angular 13 and `ngrx/store@13`
 - Angular 12 and `ngrx/store@12`
 - Angular 11 and `ngrx/store@11`
 - Angular 10 and `ngrx/store@10`
