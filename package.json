@@ -80,7 +80,7 @@
     "@ngrx/effects": "12.5.1",
     "@ngrx/entity": "12.5.1",
     "@ngrx/store": "12.5.1",
-    "core-js": "3.22.1",
+    "core-js": "3.22.2",
     "rxjs": "6.6.7",
     "tslib": "2.3.1",
     "zone.js": "0.11.5"
