@@ -111,7 +111,7 @@
     "commitlint": "17.0.0",
     "coveralls": "3.1.1",
     "eslint": "8.16.0",
-    "husky": "7.0.4",
+    "husky": "8.0.1",
     "jasmine-core": "4.1.1",
     "jasmine-spec-reporter": "7.0.0",
     "karma": "6.3.19",
