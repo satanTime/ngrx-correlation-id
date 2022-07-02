@@ -45,7 +45,7 @@
     "karma-chrome-launcher": "2.2.0",
     "karma-jasmine": "1.1.2",
     "karma-jasmine-html-reporter": "0.2.2",
-    "npm": "6.13.7",
+    "npm": "6.14.17",
     "protractor": "5.4.4",
     "puppeteer": "2.1.1",
     "ts-node": "7.0.1",
