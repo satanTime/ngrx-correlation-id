@@ -18,7 +18,6 @@ exports.config = {
     },
   },
   directConnect: true,
-  SELENIUM_PROMISE_MANAGER: false,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
@@ -28,7 +27,7 @@ exports.config = {
   },
   onPrepare() {
     require('ts-node').register({
-      project: require('path').join(__dirname, 'tsconfig.ivy-off.json'),
+      project: require('path').join(__dirname, 'tsconfig.classic.json'),
     });
     jasmine.getEnv().addReporter(
       new SpecReporter({

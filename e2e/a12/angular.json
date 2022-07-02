@@ -25,22 +25,22 @@
             "progress": false
           },
           "configurations": {
-            "ivy-on": {
-              "tsConfig": "tsconfig.ivy-on.json"
+            "ivy": {
+              "tsConfig": "tsconfig.ivy.json"
             },
-            "ivy-off": {
-              "tsConfig": "tsconfig.ivy-off.json"
+            "classic": {
+              "tsConfig": "tsconfig.classic.json"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "ivy-on": {
-              "browserTarget": "a12:build:ivy-on"
+            "ivy": {
+              "browserTarget": "a12:build:ivy"
             },
-            "ivy-off": {
-              "browserTarget": "a12:build:ivy-off"
+            "classic": {
+              "browserTarget": "a12:build:classic"
             }
           }
         },
@@ -52,24 +52,24 @@
             "karmaConfig": "karma.conf.js"
           },
           "configurations": {
-            "ivy-on": {
-              "tsConfig": "tsconfig.ivy-on.json"
+            "ivy": {
+              "tsConfig": "tsconfig.ivy.json"
             },
-            "ivy-off": {
-              "tsConfig": "tsconfig.ivy-off.json"
+            "classic": {
+              "tsConfig": "tsconfig.classic.json"
             }
           }
         },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "configurations": {
-            "ivy-on": {
-              "devServerTarget": "a12:serve:ivy-on",
-              "protractorConfig": "e2e/protractor.ivy-on.js"
+            "ivy": {
+              "devServerTarget": "a12:serve:ivy",
+              "protractorConfig": "e2e/protractor.ivy.js"
             },
-            "ivy-off": {
-              "devServerTarget": "a12:serve:ivy-off",
-              "protractorConfig": "e2e/protractor.ivy-off.js"
+            "classic": {
+              "devServerTarget": "a12:serve:classic",
+              "protractorConfig": "e2e/protractor.classic.js"
             }
           }
         }
