@@ -70,6 +70,33 @@ commands:
           key: << parameters.dir >>-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/<< parameters.dir >>/package.json" }}-{{ checksum "e2e/<< parameters.dir >>/package-lock.json" }}
           paths:
             - ./e2e/<< parameters.dir >>/node_modules
+  test:
+    parameters:
+      dir:
+        description: Directory in /e2e/
+        type: string
+      engine:
+        description: Angular View Engine
+        type: enum
+        enum:
+          - ''
+          - ivy
+        default: ''
+    steps:
+      - checkout
+      - attach_workspace:
+          at: dist
+      - restore_cache:
+          key: << parameters.dir >>-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/<< parameters.dir >>/package.json" }}-{{ checksum "e2e/<< parameters.dir >>/package-lock.json" }}
+      - run:
+          name: Spreading Build
+          command: npm run s:<< parameters.dir >>
+      - run:
+          name: Unit Tests
+          command: npm run e2e:<< parameters.dir >><< parameters.engine >>
+      - run:
+          name: Build
+          command: npm run b:<< parameters.dir >><< parameters.engine >>
 
 jobs:
   Core:
@@ -122,195 +149,51 @@ jobs:
         type: string
     executor: << parameters.node >>
     steps:
-      - install:
-          dir: << parameters.dir >>
-  'Angular 6':
-    executor: a6
+      - run: date
+      - when:
+          condition:
+            or:
+              - not:
+                  matches:
+                    pattern: '(renovate|dependabot/npm_and_yarn)/e2e/.*'
+                    value: << pipeline.git.branch >>
+              - matches:
+                  pattern: '(renovate|dependabot/npm_and_yarn)/e2e/<< parameters.dir >>/.*'
+                  value: << pipeline.git.branch >>
+          steps:
+            - install:
+                dir: << parameters.dir >>
+  E2E Test:
+    parameters:
+      node:
+        type: executor
+        default: core
+      dir:
+        type: string
+      engine:
+        type: enum
+        enum:
+          - ''
+          - ivy
+        default: ''
+    executor: << parameters.node >>
     steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a6-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a6/package.json" }}-{{ checksum "e2e/a6/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a6
-      - run:
-          name: Angular 6 E2E
-          command: npm run e2e:a6
-      - run:
-          name: Angular 6 Build
-          command: npm run b:a6
-  'Angular 7':
-    executor: a7
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a7-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a7/package.json" }}-{{ checksum "e2e/a7/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a7
-      - run:
-          name: Angular 7 E2E
-          command: npm run e2e:a7
-      - run:
-          name: Angular 7 Build
-          command: npm run b:a7
-  'Angular 8':
-    executor: a8
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a8-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a8/package.json" }}-{{ checksum "e2e/a8/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a8
-      - run:
-          name: Angular 8 E2E
-          command: npm run e2e:a8
-      - run:
-          name: Angular 8 Build
-          command: npm run b:a8
-  'Angular 9 without Ivy':
-    executor: a9
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a9
-      - run:
-          name: Angular 9 E2E
-          command: npm run e2e:a9:off
-      - run:
-          name: Angular 9 Build
-          command: npm run b:a9:off
-  'Angular 9 with Ivy':
-    executor: a9
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a9-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a9/package.json" }}-{{ checksum "e2e/a9/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a9
-      - run:
-          name: Angular 9 E2E
-          command: npm run e2e:a9:on
-      - run:
-          name: Angular 9 Build
-          command: npm run b:a9:on
-  'Angular 10 without Ivy':
-    executor: a10
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a10
-      - run:
-          name: Angular 10 E2E
-          command: npm run e2e:a10:off
-      - run:
-          name: Angular 10 Build
-          command: npm run b:a10:off
-  'Angular 10 with Ivy':
-    executor: a10
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a10-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a10/package.json" }}-{{ checksum "e2e/a10/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a10
-      - run:
-          name: Angular 10 E2E
-          command: npm run e2e:a10:on
-      - run:
-          name: Angular 10 Build
-          command: npm run b:a10:on
-  'Angular 11 without Ivy':
-    executor: a11
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a11
-      - run:
-          name: Angular 11 E2E
-          command: npm run e2e:a11:off
-      - run:
-          name: Angular 11 Build
-          command: npm run b:a11:off
-  'Angular 11 with Ivy':
-    executor: a11
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a11-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a11/package.json" }}-{{ checksum "e2e/a11/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a11
-      - run:
-          name: Angular 11 E2E
-          command: npm run e2e:a11:on
-      - run:
-          name: Angular 11 Build
-          command: npm run b:a11:on
-  'Angular 12 with Ivy':
-    executor: a12
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a12-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a12/package.json" }}-{{ checksum "e2e/a12/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a12
-      - run:
-          name: Angular 12 E2E
-          command: npm run e2e:a12:on
-      - run:
-          name: Angular 12 Build
-          command: npm run b:a12:on
-  'Angular 13 with Ivy':
-    executor: a13
-    steps:
-      - checkout
-      - attach_workspace:
-          at: dist
-      - restore_cache:
-          key: a13-<< pipeline.parameters.lockindex >>-{{ arch }}-{{ checksum "e2e/a13/package.json" }}-{{ checksum "e2e/a13/package-lock.json" }}
-      - run:
-          name: Spreading Build
-          command: npm run s:a13
-      - run:
-          name: Angular 13 E2E
-          command: npm run e2e:a13
-      - run:
-          name: Angular 13 Build
-          command: npm run b:a13
+      - run: date
+      - when:
+          condition:
+            or:
+              - not:
+                  matches:
+                    pattern: '(renovate|dependabot/npm_and_yarn)/e2e/.*'
+                    value: << pipeline.git.branch >>
+              - matches:
+                  pattern: '(renovate|dependabot/npm_and_yarn)/e2e/<< parameters.dir >>/.*'
+                  value: << pipeline.git.branch >>
+          steps:
+            - test:
+                dir: << parameters.dir >>
+                engine: << parameters.engine >>
+
 workflows:
   version: 2
   Testing:
@@ -337,47 +220,36 @@ workflows:
                 - a12
                 - a13
 
-      - 'Angular 6':
-          name: a6:test
+      # testing classic view engine
+      - E2E Test:
+          name: << matrix.dir >>:test
+          node: << matrix.dir >>
+          dir: << matrix.dir >>
           requires:
-            - a6:install
-      - 'Angular 7':
-          name: a7:test
+            - << matrix.dir >>:install
+          matrix:
+            parameters:
+              dir:
+                - a6
+                - a7
+                - a8
+                - a9
+                - a10
+                - a11
+
+      # testing ivy view engine
+      - E2E Test:
+          name: << matrix.dir >>:test:ivy
+          node: << matrix.dir >>
+          dir: << matrix.dir >>
+          engine: ivy
           requires:
-            - a7:install
-      - 'Angular 8':
-          name: a8:test
-          requires:
-            - a8:install
-      - 'Angular 9 without Ivy':
-          name: a9:test
-          requires:
-            - a9:install
-      - 'Angular 9 with Ivy':
-          name: a9:test:ivy
-          requires:
-            - a9:install
-      - 'Angular 10 without Ivy':
-          name: a10:test
-          requires:
-            - a10:install
-      - 'Angular 10 with Ivy':
-          name: a10:test:ivy
-          requires:
-            - a10:install
-      - 'Angular 11 without Ivy':
-          name: a11:test
-          requires:
-            - a11:install
-      - 'Angular 11 with Ivy':
-          name: a11:test:ivy
-          requires:
-            - a11:install
-      - 'Angular 12 with Ivy':
-          name: a12:test:ivy
-          requires:
-            - a12:install
-      - 'Angular 13 with Ivy':
-          name: a13:test:ivy
-          requires:
-            - a13:install
+            - << matrix.dir >>:install
+          matrix:
+            parameters:
+              dir:
+                - a9
+                - a10
+                - a11
+                - a12
+                - a13

@@ -2,7 +2,7 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
-const {SpecReporter} = require('jasmine-spec-reporter');
+const {SpecReporter, StacktraceOption} = require('jasmine-spec-reporter');
 
 /**
  * @type { import("protractor").Config }
@@ -18,6 +18,7 @@ exports.config = {
     },
   },
   directConnect: true,
+  SELENIUM_PROMISE_MANAGER: false,
   baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
@@ -27,8 +28,14 @@ exports.config = {
   },
   onPrepare() {
     require('ts-node').register({
-      project: require('path').join(__dirname, 'tsconfig.ivy-on.json'),
+      project: require('path').join(__dirname, 'tsconfig.ivy.json'),
     });
-    jasmine.getEnv().addReporter(new SpecReporter({spec: {displayStacktrace: true}}));
+    jasmine.getEnv().addReporter(
+      new SpecReporter({
+        spec: {
+          displayStacktrace: StacktraceOption.PRETTY,
+        },
+      }),
+    );
   },
 };

@@ -27,7 +27,7 @@ exports.config = {
   },
   onPrepare() {
     require('ts-node').register({
-      project: require('path').join(__dirname, 'tsconfig.ivy-off.json'),
+      project: require('path').join(__dirname, 'tsconfig.classic.json'),
     });
     jasmine.getEnv().addReporter(new SpecReporter({spec: {displayStacktrace: true}}));
   },

@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.ivy-on.json",
+  "extends": "../tsconfig.ivy.json",
   "compilerOptions": {
     "module": "commonjs"
   }
