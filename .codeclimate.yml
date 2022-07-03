@@ -25,6 +25,8 @@ exclude_patterns:
   - 'CODEOWNERS'
   - 'Dockerfile'
   - 'LICENSE'
+  - 'docker-compose.sh'
+  - 'docker-compose.yml'
   - 'karma-test-shim.ts'
   - 'karma.conf.ts'
   - 'renovate.json'
