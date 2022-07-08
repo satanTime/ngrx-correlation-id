@@ -125,7 +125,7 @@
     "npm": "8.13.2",
     "prettier": "2.7.1",
     "protractor": "7.0.0",
-    "puppeteer": "15.3.0",
+    "puppeteer": "15.3.2",
     "semantic-release": "19.0.3",
     "ts-node": "10.8.2",
     "typescript": "4.3.5"
