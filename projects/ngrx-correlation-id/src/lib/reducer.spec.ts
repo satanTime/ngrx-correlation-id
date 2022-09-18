@@ -1,5 +1,5 @@
-import {cidReducer, selectCidFeature} from './reducer';
-import {cidRemove} from './actions';
+import { cidRemove } from './actions';
+import { cidReducer, selectCidFeature } from './reducer';
 
 describe('reducer', () => {
   describe('selectCidFeature', () => {
@@ -19,9 +19,9 @@ describe('reducer', () => {
       const state = {
         tasks: [],
         payloads: {
-          1: {id: 1},
-          2: {id: 2},
-          3: {id: 3},
+          1: { id: 1 },
+          2: { id: 2 },
+          3: { id: 3 },
           4: undefined,
         },
       };
@@ -35,8 +35,8 @@ describe('reducer', () => {
       ).toEqual({
         tasks: [],
         payloads: {
-          1: {id: 1},
-          3: {id: 3},
+          1: { id: 1 },
+          3: { id: 3 },
         },
       });
     });

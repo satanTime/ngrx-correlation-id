@@ -1,16 +1,16 @@
-import {Injectable} from '@angular/core';
-import {Actions, Effect, ofType} from '@ngrx/effects';
-import {cidPayload, cidTask} from 'ngrx-correlation-id';
-import {EMPTY, of, throwError, timer} from 'rxjs';
-import {catchError, mapTo, repeat, switchMap} from 'rxjs/operators';
-import {LoadUser, UpsertUser} from './user/user.actions';
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { cidPayload, cidTask } from 'ngrx-correlation-id';
+import { EMPTY, of, throwError, timer } from 'rxjs';
+import { catchError, mapTo, repeat, switchMap } from 'rxjs/operators';
+import { LoadUser, UpsertUser } from './user/user.actions';
 
 @Injectable()
 export class EntityEffects {
   @Effect()
   public readonly load$ = this.actions$.pipe(
     ofType<LoadUser, LoadUser['type'], LoadUser>('[User] Load User'),
-    switchMap(({cid, fail}) =>
+    switchMap(({ cid, fail }) =>
       cidTask(
         cid,
         timer(150).pipe(
@@ -21,7 +21,7 @@ export class EntityEffects {
               name: 'name',
             }),
           ),
-          switchMap(userAction => of(cidPayload({cid: cid, payload: userAction.user.id}), userAction)),
+          switchMap(userAction => of(cidPayload({ cid: cid, payload: userAction.user.id }), userAction)),
         ),
       ),
     ),

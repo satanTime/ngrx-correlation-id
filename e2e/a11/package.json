@@ -1,6 +1,8 @@
 {
   "name": "a11",
+  "description": "Angular 11",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,7 +17,6 @@
     "e2e:classic": "ng e2e --webdriver-update=false --configuration classic",
     "postinstall": "webdriver-manager update --versions.chrome 93.0.4577.63 --gecko=false"
   },
-  "private": true,
   "peerDependencies": {
     "ngrx-correlation-id": "*"
   },
@@ -31,9 +32,9 @@
     "@ngrx/effects": "11.1.1",
     "@ngrx/entity": "11.1.1",
     "@ngrx/store": "11.1.1",
-    "rxjs": "6.6.3",
+    "rxjs": "6.5.5",
     "tslib": "2.4.0",
-    "zone.js": "0.11.3"
+    "zone.js": "0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.1102.19",
@@ -54,5 +55,7 @@
     "ts-node": "8.10.2",
     "typescript": "4.0.8"
   },
-  "lockfileVersion": 1
+  "engines": {
+    "npm": "6.14.17"
+  }
 }

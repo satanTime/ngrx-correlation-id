@@ -1,6 +1,6 @@
-import {CidTask} from 'ngrx-correlation-id';
-import {AppPage} from './app.po';
-import {browser, logging} from 'protractor';
+import { CidTask } from 'ngrx-correlation-id';
+import { AppPage } from './app.po';
+import { browser, logging } from 'protractor';
 
 describe('cidStart', () => {
   let page: AppPage;
@@ -21,19 +21,16 @@ describe('cidStart', () => {
 
   it('adds cid to the task list', async () => {
     await page.navigateTo();
-    let state: any;
-    let task: CidTask;
-    let cid: string;
 
     // checking initial state
-    task = JSON.parse(await page.getSelectCid());
+    const task: CidTask = JSON.parse(await page.getSelectCid());
     expect(task).toEqual({
       cid: jasmine.stringMatching(/.+/),
       inProgress: false,
     });
-    cid = task.cid;
+    const cid: string = task.cid;
 
-    state = JSON.parse(await page.getFeature());
+    let state: any = JSON.parse(await page.getFeature());
     expect(state).toEqual({
       tasks: [],
       payloads: {},

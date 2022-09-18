@@ -1,6 +1,6 @@
-import {Action} from '@ngrx/store';
+import { Action } from '@ngrx/store';
 
-import {User} from './user.model';
+import { User } from './user.model';
 
 export class LoadUser implements Action {
   public readonly type = '[User] Load User';
