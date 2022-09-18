@@ -12,7 +12,6 @@ services:
       - npm
       - install
       - --no-audit
-      - --omit=optional
 
   a6:
     image: satantime/puppeteer-node:8.17.0
@@ -25,7 +24,6 @@ services:
       - npm
       - install
       - --no-audit
-      - --no-optional
 
   a7:
     image: satantime/puppeteer-node:8.17.0
@@ -38,7 +36,6 @@ services:
       - npm
       - install
       - --no-audit
-      - --no-optional
 
   a8:
     image: satantime/puppeteer-node:10.24.1
@@ -51,18 +48,18 @@ services:
       - npm
       - install
       - --no-audit
-      - --no-optional
 
   a9:
     image: satantime/puppeteer-node:12.22.12
     working_dir: /app
     volumes:
       - ./e2e/a9:/app
+      - gyp:/root/.node-gyp
+      - npm:/root/.npm
     command:
       - npm
       - install
       - --no-audit
-      - --no-optional
 
   a10:
     image: satantime/puppeteer-node:12.22.12
@@ -75,7 +72,6 @@ services:
       - npm
       - install
       - --no-audit
-      - --no-optional
 
   a11:
     image: satantime/puppeteer-node:12.22.12
@@ -88,7 +84,6 @@ services:
       - npm
       - install
       - --no-audit
-      - --no-optional
 
   a12:
     image: satantime/puppeteer-node:12.22.12
@@ -101,7 +96,6 @@ services:
       - npm
       - install
       - --no-audit
-      - --no-optional
 
   a13:
     image: satantime/puppeteer-node:12.22.12
@@ -114,7 +108,6 @@ services:
       - npm
       - install
       - --no-audit
-      - --no-optional
 
 volumes:
   npm:

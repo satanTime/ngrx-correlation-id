@@ -1,10 +1,10 @@
-import {ChangeDetectionStrategy, Component, OnDestroy} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {cidEnd, cidPayload, cidRemove, cidStart, CidTask, cidWait, selectCid} from 'ngrx-correlation-id';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
-import {repeatWhen, startWith, tap} from 'rxjs/operators';
-import {selectUsers, State} from './store/reducers';
-import {LoadUser} from './store/user/user.actions';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { cidEnd, cidPayload, cidRemove, cidStart, CidTask, cidWait, selectCid } from 'ngrx-correlation-id';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { repeatWhen, startWith, tap } from 'rxjs/operators';
+import { selectUsers, State } from './store/reducers';
+import { LoadUser } from './store/user/user.actions';
 
 @Component({
   selector: 'app-entity',
@@ -46,19 +46,19 @@ export class EntityComponent implements OnDestroy {
   }
 
   public taskStart(): void {
-    this.store.dispatch(cidStart({cid: this.cid}));
+    this.store.dispatch(cidStart({ cid: this.cid }));
   }
 
   public taskEnd(): void {
-    this.store.dispatch(cidEnd({cid: this.cid}));
+    this.store.dispatch(cidEnd({ cid: this.cid }));
   }
 
   public taskRemove(): void {
-    this.store.dispatch(cidRemove({cid: this.cid}));
+    this.store.dispatch(cidRemove({ cid: this.cid }));
   }
 
   public taskPayload<T>(payload: T): void {
-    this.store.dispatch(cidPayload({cid: this.cid, payload}));
+    this.store.dispatch(cidPayload({ cid: this.cid, payload }));
   }
 
   public effect(fail: boolean): void {

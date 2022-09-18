@@ -1,7 +1,7 @@
-import {NgModule} from '@angular/core';
-import {Store, StoreModule} from '@ngrx/store';
+import { NgModule } from '@angular/core';
+import { Store, StoreModule } from '@ngrx/store';
 
-import {cidReducer} from './reducer';
+import { cidReducer } from './reducer';
 
 export let ngrxCorrelationIdStore: Store<any>;
 

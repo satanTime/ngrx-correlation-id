@@ -88,11 +88,10 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "12.2.18",
     "@angular-devkit/core": "12.2.18",
-    "@angular-eslint/builder": "12.7.0",
-    "@angular-eslint/eslint-plugin": "12.7.0",
-    "@angular-eslint/eslint-plugin-template": "12.7.0",
-    "@angular-eslint/schematics": "12.7.0",
-    "@angular-eslint/template-parser": "12.7.0",
+    "@angular-eslint/builder": "14.1.1",
+    "@angular-eslint/eslint-plugin": "14.1.1",
+    "@angular-eslint/eslint-plugin-template": "14.1.1",
+    "@angular-eslint/template-parser": "14.1.1",
     "@angular/cli": "12.2.18",
     "@angular/compiler-cli": "12.2.16",
     "@angular/language-service": "12.2.16",
@@ -110,7 +109,18 @@
     "codecov": "3.8.3",
     "commitlint": "17.1.2",
     "coveralls": "3.1.1",
-    "eslint": "7.32.0",
+    "eslint": "8.23.1",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-import-resolver-typescript": "3.5.1",
+    "eslint-plugin-es-roikoren": "3.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-json": "3.1.0",
+    "eslint-plugin-mdx": "2.0.5",
+    "eslint-plugin-prefer-arrow": "1.2.3",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-unicorn": "43.0.2",
+    "eslint-plugin-unused-imports": "2.0.0",
+    "eslint-plugin-yml": "1.2.0",
     "husky": "8.0.1",
     "jasmine-core": "4.4.0",
     "jasmine-spec-reporter": "7.0.0",
@@ -136,6 +146,5 @@
       "LICENSE",
       "README.md"
     ]
-  },
-  "lockfileVersion": 1
+  }
 }

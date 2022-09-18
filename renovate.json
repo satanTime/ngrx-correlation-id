@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", ":semanticCommits", ":semanticCommitTypeAll(chore)"],
+  "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
   "dependencyDashboard": false,
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
@@ -18,12 +18,11 @@
   "packageRules": [
     {
       "paths": ["projects/ngrx-correlation-id/package.json"],
-      "depTypeList": ["peerDependencies"],
       "enabled": false
     },
 
     {
-      "packagePatterns": ["satantime/puppeteer-node", "@types/node"],
+      "packagePatterns": ["satantime/puppeteer-node", "@types/node", "node"],
       "major": {
         "enabled": false
       },
@@ -90,6 +89,12 @@
     {
       "additionalBranchPrefix": "e2e/a6/",
       "paths": ["e2e/a6/package.json"],
+      "packageNames": ["jasmine-spec-reporter"],
+      "allowedVersions": "<=4"
+    },
+    {
+      "additionalBranchPrefix": "e2e/a6/",
+      "paths": ["e2e/a6/package.json"],
       "packageNames": ["@types/jasminewd2"],
       "allowedVersions": "<=2.0"
     },
@@ -97,13 +102,7 @@
       "additionalBranchPrefix": "e2e/a6/",
       "paths": ["e2e/a6/package.json"],
       "packageNames": ["@types/node"],
-      "allowedVersions": "<=8"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a6/",
-      "paths": ["e2e/a6/package.json"],
-      "packageNames": ["jasmine-spec-reporter"],
-      "allowedVersions": "<=4.2"
+      "allowedVersions": "<=8.9"
     },
     {
       "additionalBranchPrefix": "e2e/a6/",
@@ -213,6 +212,12 @@
     },
     {
       "additionalBranchPrefix": "e2e/a7/",
+      "paths": ["e2e/a6/package.json"],
+      "packageNames": ["jasmine-spec-reporter"],
+      "allowedVersions": "<=4"
+    },
+    {
+      "additionalBranchPrefix": "e2e/a7/",
       "paths": ["e2e/a7/package.json"],
       "packageNames": ["@types/jasminewd2"],
       "allowedVersions": "<=2.0"
@@ -222,12 +227,6 @@
       "paths": ["e2e/a7/package.json"],
       "packageNames": ["@types/node"],
       "allowedVersions": "<=8"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a7/",
-      "paths": ["e2e/a7/package.json"],
-      "packageNames": ["jasmine-spec-reporter"],
-      "allowedVersions": "<=4.2"
     },
     {
       "additionalBranchPrefix": "e2e/a7/",
@@ -331,6 +330,12 @@
     },
     {
       "additionalBranchPrefix": "e2e/a8/",
+      "paths": ["e2e/a6/package.json"],
+      "packageNames": ["jasmine-spec-reporter"],
+      "allowedVersions": "<=4"
+    },
+    {
+      "additionalBranchPrefix": "e2e/a8/",
       "paths": ["e2e/a8/package.json"],
       "packageNames": ["@types/jasminewd2"],
       "allowedVersions": "<=2.0"
@@ -340,12 +345,6 @@
       "paths": ["e2e/a8/package.json"],
       "packageNames": ["@types/node"],
       "allowedVersions": "<=8"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a8/",
-      "paths": ["e2e/a8/package.json"],
-      "packageNames": ["jasmine-spec-reporter"],
-      "allowedVersions": "<=4.2"
     },
     {
       "additionalBranchPrefix": "e2e/a8/",
@@ -449,6 +448,12 @@
     },
     {
       "additionalBranchPrefix": "e2e/a9/",
+      "paths": ["e2e/a6/package.json"],
+      "packageNames": ["jasmine-spec-reporter"],
+      "allowedVersions": "<=4"
+    },
+    {
+      "additionalBranchPrefix": "e2e/a9/",
       "paths": ["e2e/a9/package.json"],
       "packageNames": ["@types/jasminewd2"],
       "allowedVersions": "<=2.0"
@@ -458,12 +463,6 @@
       "paths": ["e2e/a9/package.json"],
       "packageNames": ["@types/node"],
       "allowedVersions": "<=12"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a9/",
-      "paths": ["e2e/a9/package.json"],
-      "packageNames": ["jasmine-spec-reporter"],
-      "allowedVersions": "<=4.2"
     },
     {
       "additionalBranchPrefix": "e2e/a9/",
@@ -567,6 +566,12 @@
     },
     {
       "additionalBranchPrefix": "e2e/a10/",
+      "paths": ["e2e/a6/package.json"],
+      "packageNames": ["jasmine-spec-reporter"],
+      "allowedVersions": "<=5"
+    },
+    {
+      "additionalBranchPrefix": "e2e/a10/",
       "paths": ["e2e/a10/package.json"],
       "packageNames": ["@types/jasminewd2"],
       "allowedVersions": "<=2.0"
@@ -576,12 +581,6 @@
       "paths": ["e2e/a10/package.json"],
       "packageNames": ["@types/node"],
       "allowedVersions": "<=12"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a10/",
-      "paths": ["e2e/a10/package.json"],
-      "packageNames": ["jasmine-spec-reporter"],
-      "allowedVersions": "<=5.0"
     },
     {
       "additionalBranchPrefix": "e2e/a10/",
@@ -685,6 +684,12 @@
     },
     {
       "additionalBranchPrefix": "e2e/a11/",
+      "paths": ["e2e/a6/package.json"],
+      "packageNames": ["jasmine-spec-reporter"],
+      "allowedVersions": "<=5"
+    },
+    {
+      "additionalBranchPrefix": "e2e/a11/",
       "paths": ["e2e/a11/package.json"],
       "packageNames": ["@types/jasminewd2"],
       "allowedVersions": "<=2.0"
@@ -694,12 +699,6 @@
       "paths": ["e2e/a11/package.json"],
       "packageNames": ["@types/node"],
       "allowedVersions": "<=12"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a11/",
-      "paths": ["e2e/a11/package.json"],
-      "packageNames": ["jasmine-spec-reporter"],
-      "allowedVersions": "<=5.0"
     },
     {
       "additionalBranchPrefix": "e2e/a11/",
@@ -774,19 +773,19 @@
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["rxjs"],
-      "allowedVersions": "/^6\\.6\\./"
+      "allowedVersions": "<=6.6"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["tslib"],
-      "allowedVersions": "/^2\\./"
+      "allowedVersions": "<=2.2"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["zone.js"],
-      "allowedVersions": "/^0\\.11\\./"
+      "allowedVersions": "<=0.11"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
@@ -799,7 +798,13 @@
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["@types/jasmine", "jasmine-core"],
-      "allowedVersions": "/^3\\.6\\./"
+      "allowedVersions": "<=3.6"
+    },
+    {
+      "additionalBranchPrefix": "e2e/a12/",
+      "paths": ["e2e/a6/package.json"],
+      "packageNames": ["jasmine-spec-reporter"],
+      "allowedVersions": "<=5"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
@@ -811,37 +816,31 @@
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["@types/node"],
-      "allowedVersions": "/^12\\./"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a12/",
-      "paths": ["e2e/a12/package.json"],
-      "packageNames": ["jasmine-spec-reporter"],
-      "allowedVersions": "/^7\\./"
+      "allowedVersions": "<=12"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["karma"],
-      "allowedVersions": "/^6\\.3\\./"
+      "allowedVersions": "<=6.1"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["karma-chrome-launcher"],
-      "allowedVersions": "/^3\\.1\\./"
+      "allowedVersions": "<=3.1"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["karma-jasmine"],
-      "allowedVersions": "/^4\\.0\\./"
+      "allowedVersions": "<=4.0"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
       "packageNames": ["karma-jasmine-html-reporter"],
-      "allowedVersions": "/^1\\.5\\./"
+      "allowedVersions": "<=1.5"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
@@ -852,20 +851,20 @@
     {
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
-      "packageNames": ["ts-node"],
-      "allowedVersions": "/^10\\./"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a12/",
-      "paths": ["e2e/a12/package.json"],
       "packageNames": ["puppeteer"],
       "allowedVersions": "/^10\\./"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
       "paths": ["e2e/a12/package.json"],
+      "packageNames": ["ts-node"],
+      "allowedVersions": "<=8.3"
+    },
+    {
+      "additionalBranchPrefix": "e2e/a12/",
+      "paths": ["e2e/a12/package.json"],
       "packageNames": ["typescript"],
-      "allowedVersions": "/^4\\.2\\./"
+      "allowedVersions": "<=4.3"
     },
     {
       "additionalBranchPrefix": "e2e/a12/",
@@ -892,19 +891,19 @@
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["rxjs"],
-      "allowedVersions": "/^7\\.5\\./"
+      "allowedVersions": "<=6.6"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["tslib"],
-      "allowedVersions": "/^2\\./"
+      "allowedVersions": "<=2.3"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["zone.js"],
-      "allowedVersions": "/^0\\.11\\./"
+      "allowedVersions": "<=0.11"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
@@ -916,14 +915,14 @@
     {
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
-      "packageNames": ["@types/jasmine"],
-      "allowedVersions": "/^3\\.10\\./"
+      "packageNames": ["@types/jasmine", "jasmine-core"],
+      "allowedVersions": "<=3.9"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
-      "paths": ["e2e/a13/package.json"],
-      "packageNames": ["jasmine-core"],
-      "allowedVersions": "/^4\\.0\\./"
+      "paths": ["e2e/a6/package.json"],
+      "packageNames": ["jasmine-spec-reporter"],
+      "allowedVersions": "<=5"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
@@ -935,49 +934,37 @@
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["@types/node"],
-      "allowedVersions": "/^12\\./"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a13/",
-      "paths": ["e2e/a13/package.json"],
-      "packageNames": ["jasmine-spec-reporter"],
-      "allowedVersions": "/^7\\./"
+      "allowedVersions": "<=12"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["karma"],
-      "allowedVersions": "/^6\\.3\\./"
+      "allowedVersions": "<=6.3"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["karma-chrome-launcher"],
-      "allowedVersions": "/^3\\.1\\./"
+      "allowedVersions": "<=3.1"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["karma-jasmine"],
-      "allowedVersions": "/^4\\.0\\./"
+      "allowedVersions": "<=4.0"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["karma-jasmine-html-reporter"],
-      "allowedVersions": "/^1\\.7\\./"
+      "allowedVersions": "<=1.7"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["protractor"],
       "allowedVersions": "/^7\\.0\\./"
-    },
-    {
-      "additionalBranchPrefix": "e2e/a13/",
-      "paths": ["e2e/a13/package.json"],
-      "packageNames": ["ts-node"],
-      "allowedVersions": "/^10\\./"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",
@@ -989,7 +976,7 @@
       "additionalBranchPrefix": "e2e/a13/",
       "paths": ["e2e/a13/package.json"],
       "packageNames": ["typescript"],
-      "allowedVersions": "/^4\\.5\\./"
+      "allowedVersions": "<=4.5"
     },
     {
       "additionalBranchPrefix": "e2e/a13/",

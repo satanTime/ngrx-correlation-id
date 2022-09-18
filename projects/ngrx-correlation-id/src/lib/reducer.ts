@@ -1,6 +1,6 @@
-import {createFeatureSelector} from '@ngrx/store';
+import { createFeatureSelector } from '@ngrx/store';
 
-import {CidActions, cidEnd, cidPayload, cidRemove, cidStart} from './actions';
+import { CidActions, cidEnd, cidPayload, cidRemove, cidStart } from './actions';
 
 export interface CidTask<T = any> {
   cid: string;
@@ -22,13 +22,14 @@ const initialState: State = {
 
 export function cidReducer(state: State = initialState, action: CidActions): State {
   switch (action.type) {
-    case cidStart.type:
+    case cidStart.type: {
       return {
         ...state,
         tasks: [...state.tasks, action.cid],
       };
+    }
 
-    case cidEnd.type:
+    case cidEnd.type: {
       const index = state.tasks.indexOf(action.cid);
       if (index === -1) {
         return state;
@@ -37,8 +38,9 @@ export function cidReducer(state: State = initialState, action: CidActions): Sta
         ...state,
         tasks: state.tasks.filter((_, taskIndex) => taskIndex !== index),
       };
+    }
 
-    case cidPayload.type:
+    case cidPayload.type: {
       if (state.payloads[action.cid] === action.payload) {
         return state;
       }
@@ -49,25 +51,27 @@ export function cidReducer(state: State = initialState, action: CidActions): Sta
           [action.cid]: action.payload,
         },
       };
+    }
 
-    case cidRemove.type:
+    case cidRemove.type: {
       if (state.tasks.indexOf(action.cid) === -1 && state.payloads[action.cid] === undefined) {
         return state;
       }
+
+      const payloads: Record<keyof any, unknown> = {};
+      for (const taskId of Object.keys(state.payloads)) {
+        if (taskId !== action.cid && state.payloads[taskId] !== undefined) {
+          payloads[taskId] = state.payloads[taskId];
+        }
+      }
+
       return {
         ...state,
         tasks:
           state.tasks.indexOf(action.cid) === -1 ? state.tasks : state.tasks.filter(taskId => taskId !== action.cid),
-        payloads:
-          state.payloads[action.cid] === undefined
-            ? state.payloads
-            : Object.keys(state.payloads).reduce<State['payloads']>((result, taskId) => {
-                if (taskId !== action.cid && state.payloads[taskId] !== undefined) {
-                  result[taskId] = state.payloads[taskId];
-                }
-                return result;
-              }, {}),
+        payloads: state.payloads[action.cid] === undefined ? state.payloads : payloads,
       };
+    }
   }
 
   return state;

@@ -1,6 +1,6 @@
-import {CidTask} from 'ngrx-correlation-id';
-import {AppPage} from './app.po';
-import {browser, logging} from 'protractor';
+import { CidTask } from 'ngrx-correlation-id';
+import { AppPage } from './app.po';
+import { browser, logging } from 'protractor';
 
 describe('cidEnd', () => {
   let page: AppPage;
@@ -21,22 +21,19 @@ describe('cidEnd', () => {
 
   it('removes cid from the task list', async () => {
     await page.navigateTo();
-    let state: any;
-    let task: CidTask;
-    let cid: string;
 
     // checking initial state
-    task = JSON.parse(await page.getSelectCid());
+    const task: CidTask = JSON.parse(await page.getSelectCid());
     expect(task).toEqual({
       cid: jasmine.stringMatching(/.+/),
       inProgress: false,
     });
-    cid = task.cid;
+    let cid: string = task.cid;
 
     // starting the task
     await page.clickButton('start');
     await page.clickButton('start');
-    state = JSON.parse(await page.getFeature());
+    let state: any = JSON.parse(await page.getFeature());
     expect(state).toEqual({
       tasks: [cid, cid],
       payloads: {},

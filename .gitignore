@@ -1,6 +1,6 @@
 .angular
 .env
-dist
-node_modules
-test-reports
-tmp
+/dist
+/node_modules
+/test-reports
+/tmp
